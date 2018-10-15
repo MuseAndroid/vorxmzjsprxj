@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/transkey_bg">
+
+    <ImageView
+        android:id="@+id/demoTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/demo_app" />
+
+    <Button
+        android:id="@+id/btn_pattern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:text="pattern view"/>
+
+    <TextView
+        android:id="@+id/tv_cipherData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/blue"
+        android:text="Cipher Text : "/>
+
+    <TextView
+        android:id="@+id/tv_plainData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/orange"
+        android:text="Plain Text : "/>
+</LinearLayout>

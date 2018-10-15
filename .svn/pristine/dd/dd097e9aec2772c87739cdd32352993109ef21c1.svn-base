@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+		
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true" 
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/fullview_demo"
+		android:id="@+id/Button02">
+		</Button>
+
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true"
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/ctrlview_demo"
+		android:id="@+id/Button03">
+		</Button>
+		
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true"
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/popoverview_demo"
+		android:id="@+id/Button04"
+		>
+		</Button>
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true"
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/dialogview_demo"
+		android:id="@+id/Button05"
+		>
+		</Button>
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true" 
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/webview_demo"
+		android:id="@+id/Button01" >
+	</Button>
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true" 
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/webview_demo_new"
+		android:id="@+id/Button07" >
+	</Button>
+	
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true" 
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/fullview_demo_with_navi"
+		android:id="@+id/Button08">
+		</Button>
+
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true"
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/ctrlview_demo_with_navi"
+		android:id="@+id/Button09">
+		</Button>
+		
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true"
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/popoverview_demo_with_navi"
+		android:id="@+id/Button10"
+		>
+		</Button>
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true"
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/dialogview_demo_with_navi"
+		android:id="@+id/Button11"
+		>
+		</Button>
+	
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:layout_alignParentRight="true"
+		android:layout_weight="1"
+		android:textColor="#000000" 
+		android:text="@string/custom_dialogview_demo"
+		android:id="@+id/Button06"
+		>
+		</Button>		
+</LinearLayout>

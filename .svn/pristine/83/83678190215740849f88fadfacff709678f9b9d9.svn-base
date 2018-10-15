@@ -1,0 +1,21 @@
+//
+//  KeyWirelessManager.h
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 18..
+//
+
+#import <UIKit/UIKit.h>
+#import "ExtendWNInterface.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface KeyWirelessManager : UIView
++(instancetype)sharedInstance;
+-(void)getCertList:(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+-(void)importCertNumber:(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+-(void)importCert :(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+-(void)certCheckPasswd:(NSString *)jsonData :(ExtendWNInterface *)exInterface :(PPWebViewController *)webviewC;
+@end
+
+NS_ASSUME_NONNULL_END

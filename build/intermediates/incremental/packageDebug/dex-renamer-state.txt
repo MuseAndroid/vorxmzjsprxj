@@ -1,0 +1,7 @@
+#Fri Oct 12 16:46:07 KST 2018
+base.0=/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_c9eb4f89bd2f82cf28948513d1c13cc329800156
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_0e6b6c413d2e42e71a0d9770c76272b9ca8d5c39/classes.dex
+base.1=/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_0e6b6c413d2e42e71a0d9770c76272b9ca8d5c39
+file.0=/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_c9eb4f89bd2f82cf28948513d1c13cc329800156/classes.dex

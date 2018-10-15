@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-or/values-or.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 106,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/7c00aa82951d5ce630bc5028ad8055ee5b614259/output/res/values-or/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 205,
+                        "endColumn": 102,
+                        "endOffset": 307
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,389 @@
+//
+//  KeyWirelessManager.m
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 18..
+//
+
+#import "KeyWirelessManager.h"
+#import "RSKSWFileManager.h"
+#import "RSKSWCertManager.h"
+#import "KSWSettings.h"
+#import "RSKSWLogger.h"
+#import "RSKSWICRProtocol.h"
+#import "RSKSWUtils.h"
+#import "TransKeyView.h"
+#import "TransKey.h"
+#import "Utils.h"
+
+#define MTRANSKEY
+
+@interface KeyWirelessManager() <TransKeyViewDelegate>
+@property (strong, nonatomic) ExtendWNInterface *exWNInterface;
+@property (strong, nonatomic) PPWebViewController *ppWebVC;
+@property (strong, nonatomic) NSString *extendCallback;
+
+@property (strong, nonatomic) RSKSWCertManager *manager;
+@property (strong, nonatomic) RSKSWFileManager *fm;
+@property (strong, nonatomic) KSWSettings *settings;
+@property (strong, nonatomic) RSKSWCertificate *cert;
+@property (strong, nonatomic)RSKSWICRProtocol *icrp;
+#ifdef MTRANSKEY
+@property (nonatomic, strong) TransKeyView *mQwertyTransKeyView;
+#endif
+@end
+
+@implementation KeyWirelessManager
+int certIndex;
+#pragma mark -
+#pragma mark Life cycle
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Foo is singleton" reason:@"" userInfo:nil];
+}
+
++(instancetype)sharedInstance {
+    static KeyWirelessManager * instance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        if(!instance){
+            instance = [[KeyWirelessManager alloc] initPrivate];
+        }
+    });
+    return instance;
+}
+
+-(instancetype)initPrivate{
+    self = [super init];
+    if(self){
+        [self initManager];
+    }
+    return self;
+}
+
+-(void) initManager {
+    _manager = [RSKSWCertManager getInstance];
+    [RSKSWLogger setLogOn:NO];
+    _cert = [_manager getCert:1];
+    
+#ifdef MTRANSKEY
+    int certPwdMode = RSKSWConstCertPwdMode_MTRANSKEY;
+#else
+    int certPwdMode = RSKSWConstCertPwdMode_DEFAULT;
+#endif
+    switch(certPwdMode) {
+        case RSKSWConstCertPwdMode_MTRANSKEY:
+        {
+            //            NSData *aRand = [RSKSWUtils genSecRandom:40];
+            char tmp[40];
+            memset(tmp, 'A', 40);
+            NSData *aRand = [NSData dataWithBytes:tmp length:sizeof(tmp)];
+            [_manager setCertPwdModeMTranskey:aRand];
+//            NSLog(@"randomKey init ; %@", _manager.mTRandomKey);
+            
+            break;
+        }
+        case RSKSWConstCertPwdMode_RSSECUREDATA:
+        {
+            //            RSSecureData *secData = [[RSSecureData alloc] init];
+            //            [secData setData:"qwer"  length:4];
+            
+            [_manager setCertPwdModeRSSecureData:_manager.mSecureData];
+            break;
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark interface
+-(void)getCertList:(NSString *)jsonData :(ExtendWNInterface *)exInterface {
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+     ExtendWNInterface *exWNInterface = exInterface;
+     NSString *callback = [json objectForKey:@"CALLBACK"];
+    
+
+    NSMutableArray *certList = [[NSMutableArray alloc] init];
+    
+    int count = [_manager count];
+    for(int i =0;i<count;i++){
+        NSMutableDictionary *certItem = [[NSMutableDictionary alloc] init];
+        RSKSWCertificate *certRowData = [self.manager getCert: i];
+        NSString* divided = nil;
+        NSString* cnString = [certRowData getSubjectCn];
+        if(cnString.length > 13) {
+            NSRange cnRange;
+            cnRange.length = 13;
+            cnRange.location = 0;
+            divided = [cnString substringWithRange:cnRange];
+        } else {
+            divided = [NSString stringWithString:cnString];
+        }
+        
+        [certItem setValue:[certRowData getPolicy] forKey:@"policy"];
+        [certItem setValue:cnString forKey:@"cnname"];
+        [certItem setValue:[certRowData getIssuerCn] forKey:@"issuer"];
+        [certItem setValue:[certRowData getNotAfterDate] forKey:@"endDate"];
+        
+        [certList addObject:certItem];
+    }
+    
+    NSDictionary *result = @{
+                             @"resultCode":@"0000",
+                             @"resultData": certList
+                             };
+    NSString *resultStr = [result jsonString];
+    [exWNInterface runCallback:callback :resultStr];
+}
+
+-(void)importCertNumber:(NSString *)jsonData :(ExtendWNInterface *)exInterface{
+
+    
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    ExtendWNInterface *exWNInterface = exInterface;
+    NSString *callback = [json objectForKey:@"CALLBACK"];
+    NSString *url = [json objectForKey:@"url"];
+    unsigned int port = [[json objectForKey:@"port"] intValue];
+    
+    _icrp = [[RSKSWICRProtocol alloc]initWithIP:url port:port];
+    if(!_icrp){
+        NSDictionary *result = @{
+                                 @"resultCode":@"9999",
+                                 @"resultData": @"RSKSWICRProtocol 초기화 에러"
+                                 };
+        NSString *resultStr = [result jsonString];
+        [exWNInterface runCallback:callback :resultStr];
+    }
+    _icrp.securityLevel=RSKSWConstCRSecLevel_SHA1;
+    //icrp.securityLevel=RSKSWConstCRSecLevel_SHA256;
+    //import1을 이용하여 중계서버에 인증번호 요청
+    int ret = [_icrp import1];
+    
+    if (ret < 0)
+    {
+        NSDictionary *result = @{
+                                 @"resultCode":_icrp.lastErrorCode,
+                                 @"resultData": _icrp.lastErrorMessage
+                                 };
+        NSString *resultStr = [result jsonString];
+        [exWNInterface runCallback:callback :resultStr];
+//        [self showMessage:icrp.lastErrorMessage withTitle:icrp.lastErrorCode];
+    }
+    else
+    {
+        //서버로부터 받은 인증번호 출력
+        NSString *fullAuthCode = [_icrp generatedNumber];
+//        NSRange range1 = {0, 4};
+//        NSRange range2 = {4, 4};
+//        NSRange range3 = {8, 4};
+//
+//        NSString *numToStr1 = [fullAuthCode substringWithRange:range1];
+//        NSString *numToStr2 = [fullAuthCode substringWithRange:range2];
+//        NSString *numToStr3 = [fullAuthCode substringWithRange:range3];
+//
+//        [self.authCodeLB setText:[NSString stringWithFormat:@"%@ - %@ - %@", numToStr1, numToStr2, numToStr3]];
+        NSDictionary *result = @{
+                                 @"resultCode":@"0000",
+                                 @"resultData": fullAuthCode
+                                 };
+        NSString *resultStr = [result jsonString];
+        [exWNInterface runCallback:callback :resultStr];
+    }
+}
+
+-(void)importCert :(NSString *)jsonData :(ExtendWNInterface *)exInterface {
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    ExtendWNInterface *exWNInterface = exInterface;
+    NSString *callback = [json objectForKey:@"CALLBACK"];
+    
+    //import2를 이용하여 중계서버로부터 인증서를 받아옴
+    if(_icrp == nil){
+        NSDictionary *result = @{
+                                 @"resultCode":@"9000",
+                                 @"resultData": @"인증서 발급번호 누락"
+                                 };
+        NSString *resultStr = [result jsonString];
+        [exWNInterface runCallback:callback :resultStr];
+        return;
+    }
+
+    int ret = [_icrp import2];
+    BOOL bRet = FALSE;
+    RSKSWCertificate *cert = nil;
+    NSDictionary *result;
+//    RSKSWCertManager *manager = [AppDelegate get].manager;
+    if (ret == 1)
+    {
+        NSLog(@"인증서 가져오기에 성공하였습니다.");
+        NSData *importedCert = _icrp.certData;
+        NSData *importedKey = _icrp.keyData;
+        
+        bRet = [_manager saveCert:importedCert key:importedKey];
+
+        //가져온 인증서를 저장
+        if (!bRet)
+        {
+            result = @{
+                       @"resultCode": @"9999",
+                       @"resultData": @"인증서 저장 실패"
+                       };
+//            [self showMessage:@"인증서 저장 실패" withTitle:@"실패"];
+            
+        }
+        if (_icrp.kmCertData !=nil && _icrp.kmKeyData!=nil)
+        {
+            if(![_manager saveCert:_icrp.kmCertData key:_icrp.kmKeyData]){
+//                [self showMessage:@"인증서 저장 실패" withTitle:@"실패"];
+                result = @{
+                           @"resultCode": @"9999",
+                           @"resultData": @"인증서 저장 실패"
+                           };
+                
+            }
+        }
+        cert = [[RSKSWCertificate  alloc] initWithCert:importedCert];
+    
+        NSString *msg = [NSString stringWithFormat:@"인증서 DN : %@\n정책 : %@",cert.getSubjectCn, cert.getPolicy];
+//        [self showMessage:@"인증서 저장 완료" withTitle:msg];
+        result = @{
+                   @"resultCode": @"0000",
+                   @"resultData": msg
+                   };
+    }
+    else
+    {
+        NSLog(@"result = %d", ret);
+        result = @{
+                   @"resultCode": _icrp.lastErrorCode,
+                   @"resultData": _icrp.lastErrorMessage
+                   };
+//        [self showMessage:icrp.lastErrorMessage withTitle:icrp.lastErrorCode];
+    }
+    NSString *resultStr = [result jsonString];
+    [exWNInterface runCallback:callback :resultStr];
+}
+
+-(void)certCheckPasswd:(NSString *)jsonData :(ExtendWNInterface *)exInterface :(PPWebViewController *)webviewC {
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    _exWNInterface = exInterface;
+    _ppWebVC = webviewC;
+    _extendCallback = [json objectForKey:@"CALLBACK"];
+    certIndex = [[json objectForKey:@"index"] intValue];
+    
+    _mQwertyTransKeyView = [[TransKeyView alloc] mTK_Init:self];
+    _mQwertyTransKeyView.delegate = self;
+    
+    [self openSecureKeyboard];
+}
+
+#pragma mark -
+#pragma mark private Functions
+- (void)openSecureKeyboard
+{
+//    self.openTextField = tag;
+    
+    [_mQwertyTransKeyView mTK_SetPBKDF_RandKey:self.manager.mTRandomKey];
+    
+    NSString *hintStr = [NSString stringWithFormat:@"%d자리 이상 입력해주세요.", 4];
+    [_mQwertyTransKeyView mTK_ShowMessageIfMinLength:hintStr];
+    [_mQwertyTransKeyView mTK_ShowMessageIfMaxLength:hintStr];
+    [_mQwertyTransKeyView mTK_UseCursor:YES];
+    [_mQwertyTransKeyView mTK_UseAllDeleteButton:YES];
+    [_mQwertyTransKeyView mTK_UseNavigationBar:YES];
+    [_mQwertyTransKeyView mTK_UseVoiceOver:YES];
+    [_mQwertyTransKeyView mTK_ShowNaviBar:NO];
+    [_mQwertyTransKeyView mTK_setHideInputPasswordDelay:3];
+    [_mQwertyTransKeyView mTK_EnableSamekeyInputDataEncrypt:YES];
+    
+    [_mQwertyTransKeyView mTK_SetControlCenter:NO];
+    [_mQwertyTransKeyView mTK_setIgnoreStatusbar:NO];
+    [_mQwertyTransKeyView SetKeyboardType:self
+                                   keypadType:0
+                                mTK_inputType:1
+                               mTK_inputTitle:@"입력"
+                                mTK_cryptType:0
+                                mTK_maxLength:16
+                                mTK_minLength:4
+                              mTK_keypadUpper:NO
+                             mTK_languageType:mTK_Language_Korean];
+    
+//    [_ppWebVC presentViewController:_mQwertyTransKeyView animated:YES completion:nil];
+    UIWindow *window=[UIApplication sharedApplication].keyWindow;
+    UIViewController *root = [window rootViewController];
+    [root presentViewController:_mQwertyTransKeyView animated:false completion:nil];
+}
+
+-(void)writeCert:(RSKSWCertificate *)certItem {
+    NSData *certData = certItem.cert;
+    NSData *keyData = certItem.key;
+    
+    NSString *documentsDirectory = [Utils getCertDirectory];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:documentsDirectory]){
+        [[NSFileManager defaultManager] createDirectoryAtPath:documentsDirectory withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    
+    NSString *dataPath = [Utils getCertFilePath];
+    NSString *keyPath = [Utils getKeyFilePath];
+    if(![certData writeToFile:dataPath atomically:YES]){
+        NSLog(@"write failed..");
+    }
+    
+    if(![keyData writeToFile:keyPath atomically:YES]){
+        NSLog(@"write failed..");
+    }
+
+}
+
+#pragma mark -
+#pragma mark TransKeyViewDelegate methods
+//입력이 완료된 후 호출
+- (void)secureInputFinish:(NSInteger)type
+{
+    NSDictionary *result;
+    
+    if (type == 1)
+    {
+        NSString *chiperString = _mQwertyTransKeyView.mTK_GetPBKDF2DataEncryptCipherDataEx;
+//        NSData *cipherData = _mQwertyTransKeyView.mTK_GetSecureKey;
+//        NSString *chiperString = [[NSString alloc] initWithData:cipherData encoding:NSUTF8StringEncoding];
+        [_mQwertyTransKeyView dismissViewControllerAnimated:YES completion:nil];
+        int ret = [_manager checkPassword:certIndex currentPassword:chiperString];
+        if(ret == RSKSW_SUCCESS){
+            RSKSWCertificate *certItem = [_manager getCert:certIndex];
+            [self writeCert:certItem];
+            
+            NSData *secureKey = [_mQwertyTransKeyView mTK_GetSecureKey];
+            NSString *sDatSecureKey = [secureKey description];
+            sDatSecureKey = [sDatSecureKey stringByReplacingOccurrencesOfString:@" " withString:@""];
+            sDatSecureKey = [sDatSecureKey stringByReplacingOccurrencesOfString:@"<" withString:@""];
+            sDatSecureKey = [sDatSecureKey stringByReplacingOccurrencesOfString:@">" withString:@""];
+            [[NSUserDefaults standardUserDefaults] setObject:sDatSecureKey forKey:@"sDatSecureKey"];
+            [[NSUserDefaults standardUserDefaults] setObject:chiperString forKey:@"chiperPwd"];
+            
+            result = @{
+                       @"resultCode":@"0000",
+                       @"resultData": @"success"
+                       };
+        }else{
+            result = @{
+                       @"resultCode":@"9000",
+                       @"resultData":@"fail"
+                       };
+        }
+
+    }
+    else
+    {
+        [_mQwertyTransKeyView dismissViewControllerAnimated:YES completion:nil];
+        result = @{
+                   @"resultCode":@"1000",
+                   @"resultData":@"cancel"
+                   };
+    }
+    NSString *resultStr = [result jsonString];
+    [_exWNInterface runCallback:_extendCallback :resultStr];
+}
+@end

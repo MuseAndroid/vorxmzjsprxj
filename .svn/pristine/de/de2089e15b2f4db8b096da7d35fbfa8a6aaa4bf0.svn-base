@@ -1,0 +1,18 @@
+//
+//  UIImage+effect.h
+//  SmartroMobile
+//
+//  Created by daumttl on 13. 10. 22..
+//  Copyright (c) 2013년 daumttl. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIImage (effect)
+
+
++ (UIImage *)imageWithResolutionIndependentFile:(NSString *)aPath;
+
+
+
+@end

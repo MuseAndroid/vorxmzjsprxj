@@ -1,0 +1,166 @@
+[
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_media_rec_btn_cancel.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_media_rec_btn_cancel.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_focused.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_down_disabled_focused.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_down_disabled_focused.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/notification_bg_low.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_disabled.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/doze.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/doze.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_down_pressed.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_down_pressed.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_input_disabled.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_input_disabled.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_input_selected.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_input_selected.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_up_disabled_focused.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_up_disabled_focused.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_up_normal.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_up_normal.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_up_pressed.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_up_pressed.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light_normal.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_down_disabled.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_down_disabled.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark_focused.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_down_selected.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_down_selected.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/start_bg.jpg",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/start_bg.jpg"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_normal.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_down_btn.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_down_btn.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_up_disabled.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_up_disabled.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_media_rec_btn_record.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_media_rec_btn_record.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_down_normal.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_down_normal.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_input_normal.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_input_normal.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_up_selected.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_up_selected.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_input.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_input.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark_normal.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_media_rec_btn_list.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_media_rec_btn_list.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light_focused.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_normal.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_input_pressed.9.png",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_input_pressed.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_media_rec_btn_stop.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_media_rec_btn_stop.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/addon_popup_picker_up_btn.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/drawable/addon_popup_picker_up_btn.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_disabled.xml",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable/common_google_signin_btn_text_disabled.xml"
+    }
+]

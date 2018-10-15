@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_crop_btn_crop_operator.9.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_crop_btn_crop_operator.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_record_menu_bg.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_record_menu_bg.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_crop_camera_crop_height.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_crop_camera_crop_height.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_crop_camera_crop_width.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_crop_camera_crop_width.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_crop_ic_rotate_left.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_crop_ic_rotate_left.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_crop_ic_rotate_right.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_crop_ic_rotate_right.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_crop_indicator_autocrop.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_crop_indicator_autocrop.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_record_mike.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_record_mike.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_crop_btn_crop_pressed.9.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_crop_btn_crop_pressed.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/ic_cancel.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/ic_cancel.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/addon_media_record_bg.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/addon_media_record_bg.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/ic_fullscreen_shrink.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/ic_fullscreen_shrink.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-xhdpi/ic_fullscreen_stretch.png",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/drawable-xhdpi/ic_fullscreen_stretch.png"
+    }
+]

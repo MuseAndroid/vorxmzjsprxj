@@ -1,0 +1,344 @@
+//
+//  SecureKeyPadManager.m
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 19..
+//
+
+#import "SecureKeyPadManager.h"
+#import "TranskeyParam.h"
+#import "TranskeyResult.h"
+
+@interface SecureKeyPadManager()
+@property (strong,nonatomic) ExtendWNInterface *exWNInterface;
+@property (strong, nonatomic) NSString *callback;
+@end
+
+@implementation SecureKeyPadManager
+TransKeyView *mNumberTransKeyView;
+TransKeyView *mQwertyTransKeyView;
+UIViewController *callerVC;
+
+NSData *secureKey;
+BOOL useAutoFocusing = false;
+NSString *title;
+int maxLength = 0;
+int minLength = 0;
+//NSString *padType;
+
+NSString *hint;
+NSString *successCallBack;
+
+BOOL isTranskeyShowing = false;
+BOOL isShowQwerty = false;
+BOOL isShowNumber = false;
+
+-(void) initWithDataFromInterface :(NSDictionary *)params :(ExtendWNInterface *) interface {
+    callerVC = nil;
+    _exWNInterface = interface;
+    hint = @"";
+    if (params != nil) {
+        [self getParams: params];
+    }
+    else {
+        title = @"보안키패드";
+        maxLength = 16;
+//        padType = @"1";
+    }
+    [self setSecureKey];
+    //    [self setNumberTrasnkey];
+}
+
+-(void)setSecureKey{
+    unsigned char iv[16] = { 'M', 'o', 'b', 'i', 'l', 'e', 'T', 'r' , 'a', 'n', 's', 'K', 'e', 'y', '1', '0' };
+    secureKey = [[NSData alloc] initWithBytes:iv length:16];
+}
+
+- (void) getParams :(NSDictionary *)params {
+    title = [params objectForKey:@"title"];
+    maxLength = [[params objectForKey:@"max_length"] intValue];
+    minLength = [[params objectForKey:@"min_length"] intValue];
+//    padType = [params objectForKey:@"type"];
+    successCallBack = [params objectForKey:@"CALLBACK"];
+    hint = [params objectForKey:@"placeholder"];
+    if(hint == nil){
+        hint = @"";
+    }
+}
+
+- (void)setNumberTrasnkey {
+    mNumberTransKeyView = [[TransKeyView alloc] mTK_Init:self];
+    mNumberTransKeyView.delegate = (id)self;
+    
+    [mNumberTransKeyView mTK_SetSecureKey:secureKey];
+}
+
+- (void) setQwertyTrasnkey {
+    mQwertyTransKeyView = [[TransKeyView alloc] mTK_Init:self];
+    mQwertyTransKeyView.delegate = (id)self;
+    
+    [mQwertyTransKeyView mTK_SetSecureKey:secureKey];
+}
+
+- (void) showNumberKeyPad {
+    //int minLength = 2;
+    
+    [mNumberTransKeyView mTK_SetSecureKey:secureKey];
+    
+    // 힌트 설정
+    [mNumberTransKeyView mTK_SetHint:hint font:[UIFont fontWithName:@"Arial" size:15]];
+    
+    // 최대, 최소값 도달시 메시지 설정
+    [mNumberTransKeyView mTK_ShowMessageIfMinLength:[NSString stringWithFormat:@"%d자리 이상 입력해주세요.", minLength]];
+    [mNumberTransKeyView mTK_ShowMessageIfMaxLength:[NSString stringWithFormat:@"%d자리 입력이 초과되었습니다.", maxLength]];
+    
+    // 보이스 오버 사용 여부
+    [mNumberTransKeyView mTK_UseVoiceOver:YES];
+    
+    // 상단의 Statusbar 무시 설정
+    [mNumberTransKeyView mTK_setIgnoreStatusbar:NO];
+    
+    // 상단의 Statusbar 색상 설정
+    [mNumberTransKeyView mTK_SetStatusbarColorwithRed:169.0f/255.0f Green:188.0f/255.0f Blue:199.0f/255.0f Alpha:0.5f];
+    
+    // 암호화 값 매번 같게 할지에 대한 설정
+    [mNumberTransKeyView mTK_EnableSamekeyInputDataEncrypt:NO];
+    
+    
+    // 키패드 최대값 도달시 자동으로 다음 키패드로 이동 사용 설정
+    [mNumberTransKeyView mTK_SetAutoFocusing:useAutoFocusing];
+    
+    // 버튼 사이 간격 설정 (기본 1에서 배수로 곱함, float)
+    [mNumberTransKeyView mTK_SetBtnMarginRatio:1];
+    
+    // for iPhone X (2017. 11. 22)
+    [mNumberTransKeyView mTK_SetSafeAreaColor:[UIColor blackColor]];
+    
+    // 가로 세로 지원 설정
+    //    [mNumberTransKeyView mTK_SupportedByDeviceOrientation:SupportedByDeviceLandscape];
+    
+    // 키보드 기본 설정
+    [mNumberTransKeyView SetKeyboardType:self
+                              keypadType:1
+                           mTK_inputType:2
+                          mTK_inputTitle:title
+                           mTK_cryptType:0
+                           mTK_maxLength:maxLength
+                           mTK_minLength:minLength
+                         mTK_keypadUpper:NO
+                        mTK_languageType:mTK_Language_Korean];
+    
+    if (callerVC == nil) {
+        UIWindow *window=[UIApplication sharedApplication].keyWindow;
+        UIViewController *root = [window rootViewController];
+        [root presentViewController:mNumberTransKeyView animated:false completion:nil];
+    }
+    else {
+        [callerVC presentViewController:mNumberTransKeyView animated:false completion:nil];
+    }
+    
+    isTranskeyShowing = YES;
+    isShowNumber = YES;
+}
+
+- (void) showQwertyKeyPad{
+    
+    /*
+     rand : acc4af609fad57f1cd870a5d94092a24be5fd974
+     Digest : 441089A7 8F9C612D C342F6E7 D78AA51D
+     */
+    //  NSString* pbkdfKey = [NSString stringWithFormat:@"acc4af609fad57f1cd870a5d94092a24be5fd974"];
+    //  [mQwertyTransKeyView mTK_SetPBKDF_RandKey:[self convertPBKDFData:pbkdfKey]];
+    
+    //int minLength = 4;
+    //    int maxLength = 16;
+    [mQwertyTransKeyView mTK_MakeSecureKey];
+    
+    // 힌트 설정
+    [mQwertyTransKeyView mTK_SetHint:hint font:[UIFont fontWithName:@"Arial" size:15]];
+    //    [mQwertyTransKeyView mTK_SetHint:hint font:[UIFont fontWithName:@"Arial" size:15] textAlignment:NSTextAlignmentCenter];
+    
+    // 최대, 최소값 도달시 메시지 설정
+    [mQwertyTransKeyView mTK_ShowMessageIfMinLength:[NSString stringWithFormat:@"%d자리 이상 입력해주세요.", minLength]];
+    [mQwertyTransKeyView mTK_ShowMessageIfMaxLength:[NSString stringWithFormat:@"%d자리 입력이 초과되었습니다.", maxLength]];
+    
+    // 커서 사용 여부
+    [mQwertyTransKeyView mTK_UseCursor:YES];
+    
+    // 인풋박스 이미지 설정 여부
+    [mQwertyTransKeyView mTK_SetInputEditboxImage:YES];
+    
+    
+    // 전체 삭제 버튼 사용 여부
+    [mQwertyTransKeyView mTK_UseAllDeleteButton:YES];
+    
+    // 보이스 오버 사용 여부
+    [mQwertyTransKeyView mTK_UseVoiceOver:NO];
+    
+    // 입력값 '*' 처리까지 딜레이 시간 설정
+    [mQwertyTransKeyView mTK_setHideInputPasswordDelay:3];
+    
+    // 경고창 타이틀 설정
+    [mQwertyTransKeyView mTK_SetAlertTitle:@"경고"];
+    
+    // 가로 세로 지원 설정
+    //[mQwertyTransKeyView mTK_SupportedByDeviceOrientation:SupportedByDeviceLandscape];
+    
+    // 시프트 옵션 사용 설정 (사용시 시프트키 두번 눌러야 고정)
+    [mQwertyTransKeyView mTK_UseShiftOptional:NO];
+    
+    // 키패드 높이 설정 (기본 1에서 배수로 곱함, float)
+    [mQwertyTransKeyView mTK_SetHeight:1];
+    
+    // 버튼 사이 간격 설정 (기본 1에서 배수로 곱함, float)
+    [mQwertyTransKeyView mTK_SetBtnMarginRatio:1];
+    
+    // 취소 버튼 감춤 설정
+    [mQwertyTransKeyView mTK_DisableCancelBtn:NO];
+    
+    // 더미별 이미지 각각 사용 설정
+    [mQwertyTransKeyView mTK_UseCustomDummy:NO];
+    
+    // 키패드 최대값 도달시 자동으로 다음 키패드로 이동 사용 설정
+    [mQwertyTransKeyView mTK_SetAutoFocusing:useAutoFocusing];
+    
+    // 상단의 Statusbar 무시 설정
+    [mQwertyTransKeyView mTK_setIgnoreStatusbar:NO];
+    
+    // 상단의 Statusbar 색상 설정
+    [mQwertyTransKeyView mTK_SetStatusbarColorwithRed:169.0f/255.0f Green:188.0f/255.0f Blue:199.0f/255.0f Alpha:0.5f];
+    
+    // for iPhone X (2017. 11. 22)
+    [mQwertyTransKeyView mTK_SetSafeAreaColor:[UIColor blackColor]];
+    
+    // 키보드 기본 설정
+    [mQwertyTransKeyView SetKeyboardType:self
+                              keypadType:0
+                           mTK_inputType:1
+                          mTK_inputTitle:title
+                           mTK_cryptType:0
+                           mTK_maxLength:maxLength
+                           mTK_minLength:minLength
+                         mTK_keypadUpper:NO
+                        mTK_languageType:mTK_Language_Korean];
+    
+    if (callerVC == nil) {
+        UIWindow *window=[UIApplication sharedApplication].keyWindow;
+        UIViewController *root = [window rootViewController];
+        [root presentViewController:mQwertyTransKeyView animated:false completion:nil];
+    }
+    else {
+        [callerVC presentViewController:mQwertyTransKeyView animated:false completion:nil];
+    }
+    
+    isTranskeyShowing = YES;
+    isShowQwerty = YES;
+}
+
+-(void)secureInputFinish:(NSInteger)type {
+    NSLog(@"===============> secureInputFinish...");
+    NSData *key;
+    if(isShowNumber){
+        key= [mNumberTransKeyView mTK_GetSecureKey];
+    } else {
+        key = [mQwertyTransKeyView mTK_GetSecureKey];
+    }
+    
+    char qwertyPlainData[256];
+    char numberPlainData[256];
+    NSDictionary *result;
+    NSString *resultString;
+    
+    if(isShowQwerty){
+        if(type == 1){
+            NSString *plaintext = [[NSString alloc] initWithCString:numberPlainData encoding:NSUTF8StringEncoding];
+            NSString *dummytext = [mQwertyTransKeyView mTK_GetDummyData];
+            NSString *ciphertext = [mQwertyTransKeyView mTK_GetSecureData];
+            //            NSLog(@"cipherText : %@", ciphertext);
+            //            NSLog(@"dummyText : %@", dummytext);
+            
+            NSDictionary *data = @{
+                       @"security_data":ciphertext,
+                       @"dummy_data":dummytext
+                       };
+            result = @{
+                       @"resultCode": @"0000",
+                       @"resultData": data
+                       };
+            resultString = [result jsonString];
+//            [AppDelegate get].mQwertycertPasswd = plaintext;
+        } else {
+            //fail callback
+            result = @{
+                       @"resultCode":@"1000",
+                       @"resultData":@"Cancel"
+                       };
+            resultString = [result jsonString];
+        }
+        [_exWNInterface runCallback:successCallBack :resultString];
+        
+    }
+    
+    if(isShowNumber){
+        if(type == 1) {
+            // type  1: 입력완료 선택  0: Close 선택
+            NSString *dummytext = [mNumberTransKeyView mTK_GetDummyData];
+            NSString *ciphertext = [mNumberTransKeyView mTK_GetSecureData];
+            //            NSLog(@"cipherText : %@", ciphertext);
+            //            NSLog(@"dummyText : %@", dummytext);
+            
+            NSDictionary *data = @{
+                                   @"security_data":ciphertext,
+                                   @"dummy_data":dummytext
+                                   };
+            result = @{
+                       @"resultCode": @"0000",
+                       @"resultData": data
+                       };
+            resultString = [result jsonString];
+        } else {
+            //fail callback
+            result = @{
+                       @"resultCode":@"1000",
+                       @"resultData":@"Cancel"
+                       };
+            resultString = [result jsonString];
+        }
+        
+        if(callerVC){
+            NSLog(@"process if caller Callback");
+        } else{
+            [_exWNInterface runCallback:successCallBack :resultString];
+        }
+    }
+    
+    if(isShowNumber){
+        [mNumberTransKeyView dismissViewControllerAnimated:false completion:nil];
+    }else{
+        [mQwertyTransKeyView dismissViewControllerAnimated:false completion:nil];
+    }
+    isTranskeyShowing = NO;
+    
+    isShowQwerty = NO;
+    isShowNumber = NO;
+    
+}
+
+- (void)didEndSecureInput:(NSInteger)type {
+    NSLog(@"===============> didEndSecureInput...");
+    //  입력 완료 후 호출(모달)
+    // TransKeyViewDelegate의 @required옵션으로 필수로 구현
+    //    [self dismissModalViewControllerAnimated:YES];
+    //    [모달키패드 release];
+    //    모달키패드 = nil;
+}
+
+/**
+ * secureInputFinish 함수는 입력문자가 0일 경우 type가 0이 나온다.
+ * 둘 중 한가지를 사용해야 한다.
+ */
+- (void)secureInputFinishIgnoreInputLength:(NSInteger)type{
+    NSLog(@"secureInputFinishIgnoreInputLength Btn Type: %ld", (long)type);
+}
+
+@end

@@ -1,0 +1,13 @@
+//
+//  LockPasswordViewController.h
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 5..
+//
+
+#import <UIKit/UIKit.h>
+#import "ExtendWNInterface.h"
+
+@interface LockPasswordViewController : UIViewController
+-(instancetype)initWithParams :(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+@end

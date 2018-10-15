@@ -1,0 +1,520 @@
+[
+    {
+        "outputFile": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldpi-320x240-v4/values-ldpi-320x240-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 1,
+                        "startOffset": 450,
+                        "endColumn": 42,
+                        "endOffset": 491
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 101,
+                    "endColumn": 49,
+                    "endOffset": 146
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 1,
+                        "startOffset": 591,
+                        "endColumn": 46,
+                        "endOffset": 636
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 151,
+                    "endColumn": 52,
+                    "endOffset": 199
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 1,
+                        "startOffset": 738,
+                        "endColumn": 49,
+                        "endOffset": 786
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 204,
+                    "endColumn": 56,
+                    "endOffset": 256
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 1,
+                        "startOffset": 1061,
+                        "endColumn": 53,
+                        "endOffset": 1113
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 261,
+                    "endColumn": 54,
+                    "endOffset": 311
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 1,
+                        "startOffset": 905,
+                        "endColumn": 51,
+                        "endOffset": 955
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 316,
+                    "endColumn": 55,
+                    "endOffset": 367
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 1,
+                        "startOffset": 957,
+                        "endColumn": 52,
+                        "endOffset": 1008
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 372,
+                    "endColumn": 53,
+                    "endOffset": 421
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 1,
+                        "startOffset": 1010,
+                        "endColumn": 50,
+                        "endOffset": 1059
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 426,
+                    "endColumn": 48,
+                    "endOffset": 470
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 1,
+                        "startOffset": 1117,
+                        "endColumn": 45,
+                        "endOffset": 1161
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 475,
+                    "endColumn": 55,
+                    "endOffset": 526
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 1,
+                        "startOffset": 1163,
+                        "endColumn": 52,
+                        "endOffset": 1214
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 531,
+                    "endColumn": 47,
+                    "endOffset": 574
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 1,
+                        "startOffset": 541,
+                        "endColumn": 44,
+                        "endOffset": 584
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 579,
+                    "endColumn": 46,
+                    "endOffset": 621
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 1,
+                        "startOffset": 493,
+                        "endColumn": 43,
+                        "endOffset": 535
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 626,
+                    "endColumn": 44,
+                    "endOffset": 666
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 1,
+                        "startOffset": 252,
+                        "endColumn": 41,
+                        "endOffset": 292
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 671,
+                    "endColumn": 48,
+                    "endOffset": 715
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 1,
+                        "startOffset": 347,
+                        "endColumn": 45,
+                        "endOffset": 391
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 720,
+                    "endColumn": 49,
+                    "endOffset": 765
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 1,
+                        "startOffset": 397,
+                        "endColumn": 46,
+                        "endOffset": 442
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 770,
+                    "endColumn": 47,
+                    "endOffset": 813
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 1,
+                        "startOffset": 298,
+                        "endColumn": 44,
+                        "endOffset": 341
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 818,
+                    "endColumn": 46,
+                    "endOffset": 860
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 1,
+                        "startOffset": 689,
+                        "endColumn": 43,
+                        "endOffset": 731
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 865,
+                    "endColumn": 44,
+                    "endOffset": 905
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 1,
+                        "startOffset": 643,
+                        "endColumn": 41,
+                        "endOffset": 683
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 910,
+                    "endColumn": 55,
+                    "endOffset": 961
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 1,
+                        "startOffset": 1273,
+                        "endColumn": 52,
+                        "endOffset": 1324
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 966,
+                    "endColumn": 52,
+                    "endOffset": 1014
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 1,
+                        "startOffset": 793,
+                        "endColumn": 49,
+                        "endOffset": 841
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1019,
+                    "endColumn": 54,
+                    "endOffset": 1069
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 1,
+                        "startOffset": 847,
+                        "endColumn": 51,
+                        "endOffset": 897
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1074,
+                    "endColumn": 46,
+                    "endOffset": 1116
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 1,
+                        "startOffset": 202,
+                        "endColumn": 43,
+                        "endOffset": 244
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1121,
+                    "endColumn": 44,
+                    "endOffset": 1161
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 1,
+                        "startOffset": 56,
+                        "endColumn": 41,
+                        "endOffset": 96
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1166,
+                    "endColumn": 49,
+                    "endOffset": 1211
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 1,
+                        "startOffset": 151,
+                        "endColumn": 46,
+                        "endOffset": 196
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1216,
+                    "endColumn": 47,
+                    "endOffset": 1259
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 1,
+                        "startOffset": 102,
+                        "endColumn": 44,
+                        "endOffset": 145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1264,
+                    "endColumn": 57,
+                    "endOffset": 1317
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 1,
+                        "startOffset": 1218,
+                        "endColumn": 54,
+                        "endOffset": 1271
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1322,
+                    "endColumn": 54,
+                    "endOffset": 1372
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 37,
+                        "startColumn": 1,
+                        "startOffset": 1328,
+                        "endColumn": 51,
+                        "endOffset": 1378
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1377,
+                    "endColumn": 54,
+                    "endOffset": 1427
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-ldpi-320x240/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 1,
+                        "startOffset": 1380,
+                        "endColumn": 51,
+                        "endOffset": 1430
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,247 @@
+var jobCD;
+var jobIdx;
+var threadIdx;
+
+M.onReady(function(e) {
+    registPush();
+});
+
+M.onHide(function(e) { });
+
+M.onRestore(function(e) { });
+
+function checkFirst() {
+    M.execute("exWNCheckFirst", {
+        TEXT: "안녕하세요",
+        CALLBACK: M.response.on( function( result ) {
+                              console.log(result);
+                              }).toString()
+    });
+}
+
+function getInsureData() {
+    var user_name = document.getElementById("userName").value;
+    var user_birth = document.getElementById("userBirth").value;
+    var user_idNo = document.getElementById("userIdNo").value;
+    var user_fId = user_birth.concat(user_idNo);
+    var telcom_target = document.getElementById("selTelCom");
+    var user_telNum = document.getElementById("userTelNum").value;
+    console.log(user_name);
+    console.log(user_birth);
+    console.log(user_idNo);
+    console.log(user_fId);
+    console.log(user_telNum);
+    console.log(telcom_target.options[telcom_target.selectedIndex].value);
+    M.execute("exWNgetInsureData", {
+            name: user_name,
+            jumin: user_fId,
+            telCom: telcom_target.options[telcom_target.selectedIndex].value,
+            telNum: user_telNum,
+            searchGubun: "0",
+            s4Code: "0001",
+            m6Code: "012110",
+            CALLBACK: M.response.on(function( result ) {
+                                  console.log(result);
+                                  jobCD = result.resultCode;
+                                  var jsonData = result.resultData;
+                                  threadIdx = jsonData.threadIndex;
+                                  jobIdx = jsonData.jobIndex;
+                                  var detailData = jsonData.data;
+                                  var error = detailData.errorCode;
+                                  document.getElementById("captchaImg").src = detailData;
+                                  if (error == '9000') {
+                                    var errorData = jsonData.data;
+                                    console.log(errorData.errorCode);
+                                    alert(errorData.errorCode);
+                                  }
+                                  }).toString()
+            });
+}
+
+function getInsureData1() {
+    var user_name = document.getElementById("userName").value;
+    var user_birth = document.getElementById("userBirth").value;
+    var user_idNo = document.getElementById("userIdNo").value;
+    var user_fId = user_birth.concat(user_idNo);
+    var telcom_target = document.getElementById("selTelCom");
+    var user_telNum = document.getElementById("userTelNum").value;
+    console.log(user_name);
+    console.log(user_birth);
+    console.log(user_idNo);
+    console.log(user_fId);
+    console.log(user_telNum);
+    console.log(telcom_target.options[telcom_target.selectedIndex].value);
+    M.execute("exWNgetInsureData", {
+            name: user_name,
+            jumin: user_fId,
+            telCom: telcom_target.options[telcom_target.selectedIndex].value,
+            telNum: user_telNum,
+            searchGubun: "0",
+            s4Code: "0200",
+            m6Code: "012120",
+            CALLBACK: M.response.on(function( result ) {
+                                  console.log(result);
+                                  jobCD = result.resultCode;
+                                  var jsonData = result.resultData;
+                                  threadIdx = jsonData.threadIndex;
+                                  jobIdx = jsonData.jobIndex;
+                                  var detailData = jsonData.data;
+                                  var error = detailData.errorCode;
+                                  document.getElementById("captchaImg").src = detailData;
+                                  if (error == '9000') {
+                                    var errorData = jsonData.data;
+                                    console.log(errorData.errorCode);
+                                  }
+                                  }).toString()
+            });
+}
+
+function setExtInsureData() {
+    M.execute("exWNsetExtParams", {
+            threadIndex: threadIdx,
+            jobIndex: jobIdx,
+            jobCode: '1002',
+            CALLBACK: M.response.on( function( result ) {
+                                  console.log(result);
+                                  jobCD = result.resultCode;
+                                  var jsonData = result.resultData;
+                                  threadIdx = jsonData.threadIndex;
+                                  jobIdx = jsonData.jobIndex;
+                                  if (jobCD == '1001') {
+                                        document.getElementById("captchaImg").src = jsonData.data;
+                                  } else {
+                                        var errorData = jsonData.data;
+                                        console.log(errorData.errorMsg);
+                                        console.log(errorData.errorCode);
+                                  }
+                              }).toString()
+            });
+}
+
+function setExtInsureData1() {
+    M.execute("exWNsetExtParams", {
+            threadIndex: threadIdx,
+            jobIndex: jobIdx,
+            jobCode: '1001',
+            data: document.getElementById("captchaCD").value,
+            CALLBACK: M.response.on( function( result ) {
+                                  console.log(result);
+                                  jobCD = result.resultCode;
+                                  var jsonData = result.resultData;
+                                  threadIdx = jsonData.threadIndex;
+                                  jobIdx = jsonData.jobIndex;
+                                  if (jobCD == '9001') {
+                                        var errorData = jsonData.data;
+                                        console.log(errorData.errorMsg);
+                                        console.log(errorData.errorCode);
+                                  } else {
+                                        if (jsonData.data != null) {
+                                            document.getElementById("captchaImg").src = jsonData.data;
+                                        }
+                                  }
+                              }).toString()
+            });
+}
+
+function setExtInsureData2() {
+    M.execute("exWNsetExtParams", {
+            threadIndex: threadIdx,
+            jobIndex: jobIdx,
+            jobCode: '1100',
+            data: document.getElementById("smsAuthCD").value,
+            CALLBACK: M.response.on( function( result ) {
+                                  console.log(result);
+                                  jobCD = result.resultCode;
+                                  var jsonData = result.resultData;
+                                  threadIdx = jsonData.threadIndex;
+                                  jobIdx = jsonData.jobIdx;
+                                  var jsonData1 = result.resultData.data;
+                                  var name = jsonData1.name;
+                                  var telNum = jsonData1.telNum;
+                                  var os = jsonData1.os;
+                                  var uuid = jsonData1.deviceID;
+                                  if (jobCD == '0000') {
+                                        console.log('이름 : ' + name);
+                                        console.log('핸드폰번호 : ' + telNum);
+                                        console.log('운영체제 : ' + os);
+                                        console.log('UUID : ' + uuid);
+                                        document.getElementById("resultText").value = jsonData1.jsonResult;
+                                  } else {
+                                        var errorData = jsonData.data;
+                                        console.log(errorData.errorMsg);
+                                        console.log(errorData.errorCode);
+                                  }
+                              }).toString()
+            });
+}
+
+function setName() {
+//    document.getElementById("userName").value = '홍준호';
+}
+
+function setBirth() {
+//    document.getElementById("userBirth").value = '900820';
+}
+
+function setIden() {
+//    document.getElementById("userIdNo").value = '1156417';
+}
+
+function setTel() {
+//    document.getElementById("userTelNum").value = '01055074581';
+}
+
+	function registPush() {
+    var result = M.plugin('push').remote.isRegisteredService();
+    console.log( result );
+
+    M.plugin('push').remote.registerServiceAndUser({
+        cuid: "GNX01",
+        name: "GNX01",
+        callback: function(result) {
+            if (result.status == "SUCCESS") {
+                console.log("FC","푸쉬 등록이 완료되었습니다. ");
+                /*alert("푸쉬 등록 완료했습니다. ");*/
+            } else {
+                console.log("FC","푸쉬 등록이 실패되었습니다.  > " + result.error );
+                /*alert("푸쉬 등록이 실패되었습니다.  > " + result.error);*/
+            }
+        }
+    });
+}
+
+/*function setOriginData() {
+    var user_name_og = document.getElementById("userName").value;
+    var user_birth_og = document.getElementById("userBirth").value;
+    var user_idNo_og = document.getElementById("userIdNo").value;
+    var user_fId_og = user_birth_og.concat(user_idNo_og);
+    var telcom_target_og = document.getElementById("selTelCom");
+    var telcom_og = telcom_target_og.options[telcom_target_og.selectedIndex].value
+    var user_telNum_og = document.getElementById("userTelNum").value;
+    var json_result_og = document.getElementById("resultText").value;
+
+    var temp = {'name':user_name_og, 'birth':user_birth_og, 'idNo':user_idNo_og, 'fId':user_fId_og, 'telCom':telcom_og, 'telNum':user_telNum_og, 'result':json_result_og};
+    document.getElementById("originData").value = temp;
+}*/
+
+function exEncodeData() {
+    var temp_origin = document.getElementById('originData').value;
+    M.execute("exWNEncryptData", {
+        data: temp_origin,
+        CALLBACK: M.response.on( function( result ) {
+                               console.log(result);
+                               document.getElementById('originData').value = result.encryptedData;
+                           }).toString()
+    })
+}
+
+function exDecodeData() {
+    var temp_origin = document.getElementById('originData').value;
+    M.execute("exWNDecryptData", {
+        data: temp_origin,
+        CALLBACK: M.response.on( function( result ) {
+                               console.log(result);
+                               document.getElementById('originData').value = result.decryptedData;
+                           }).toString()
+    })
+}

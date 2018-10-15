@@ -1,0 +1,23 @@
+//
+//  SecureKeyPadManager.h
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 19..
+//
+
+#import <UIKit/UIKit.h>
+#import "ExtendWNInterface.h"
+#import "TransKey.h"
+#import "TransKeyView.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface SecureKeyPadManager : UIView
+-(void) initWithDataFromInterface :(NSDictionary *)params :(ExtendWNInterface *) interface;
+- (void)setNumberTrasnkey;
+- (void) setQwertyTrasnkey;
+- (void) showNumberKeyPad;
+- (void) showQwertyKeyPad;
+@end
+
+NS_ASSUME_NONNULL_END

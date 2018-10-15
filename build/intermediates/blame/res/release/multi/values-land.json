@@ -1,0 +1,465 @@
+[
+    {
+        "outputFile": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-land/values-land.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 69,
+                    "endOffset": 120
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-land/values-land.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 69,
+                        "endOffset": 120
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 125,
+                    "endColumn": 63,
+                    "endOffset": 184
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-land/values-land.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 125,
+                        "endColumn": 63,
+                        "endOffset": 184
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 189,
+                    "endColumn": 70,
+                    "endOffset": 255
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-land/values-land.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 189,
+                        "endColumn": 70,
+                        "endOffset": 255
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 260,
+                    "endColumn": 67,
+                    "endOffset": 323
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-land/values-land.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 260,
+                        "endColumn": 67,
+                        "endOffset": 323
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 328,
+                    "endColumn": 49,
+                    "endOffset": 373
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 1,
+                        "startOffset": 498,
+                        "endColumn": 46,
+                        "endOffset": 543
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 378,
+                    "endColumn": 52,
+                    "endOffset": 426
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 1,
+                        "startOffset": 645,
+                        "endColumn": 49,
+                        "endOffset": 693
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 431,
+                    "endColumn": 53,
+                    "endOffset": 480
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 1,
+                        "startOffset": 918,
+                        "endColumn": 50,
+                        "endOffset": 967
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 485,
+                    "endColumn": 53,
+                    "endOffset": 534
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 1,
+                        "startOffset": 969,
+                        "endColumn": 50,
+                        "endOffset": 1018
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 539,
+                    "endColumn": 47,
+                    "endOffset": 582
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 1,
+                        "startOffset": 448,
+                        "endColumn": 44,
+                        "endOffset": 491
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 587,
+                    "endColumn": 46,
+                    "endOffset": 629
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 1,
+                        "startOffset": 400,
+                        "endColumn": 43,
+                        "endOffset": 442
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 634,
+                    "endColumn": 43,
+                    "endOffset": 673
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 1,
+                        "startOffset": 206,
+                        "endColumn": 40,
+                        "endOffset": 245
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 678,
+                    "endColumn": 47,
+                    "endOffset": 721
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 1,
+                        "startOffset": 300,
+                        "endColumn": 44,
+                        "endOffset": 343
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 726,
+                    "endColumn": 48,
+                    "endOffset": 770
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 1,
+                        "startOffset": 349,
+                        "endColumn": 45,
+                        "endOffset": 393
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 775,
+                    "endColumn": 47,
+                    "endOffset": 818
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 1,
+                        "startOffset": 251,
+                        "endColumn": 44,
+                        "endOffset": 294
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 823,
+                    "endColumn": 46,
+                    "endOffset": 865
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 1,
+                        "startOffset": 596,
+                        "endColumn": 43,
+                        "endOffset": 638
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 870,
+                    "endColumn": 44,
+                    "endOffset": 910
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 1,
+                        "startOffset": 550,
+                        "endColumn": 41,
+                        "endOffset": 590
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 915,
+                    "endColumn": 52,
+                    "endOffset": 963
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 1,
+                        "startOffset": 700,
+                        "endColumn": 49,
+                        "endOffset": 748
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 968,
+                    "endColumn": 54,
+                    "endOffset": 1018
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 1,
+                        "startOffset": 754,
+                        "endColumn": 51,
+                        "endOffset": 804
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1023,
+                    "endColumn": 46,
+                    "endOffset": 1065
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 1,
+                        "startOffset": 156,
+                        "endColumn": 43,
+                        "endOffset": 198
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1070,
+                    "endColumn": 49,
+                    "endOffset": 1115
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 1,
+                        "startOffset": 105,
+                        "endColumn": 46,
+                        "endOffset": 150
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1120,
+                    "endColumn": 47,
+                    "endOffset": 1163
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 1,
+                        "startOffset": 56,
+                        "endColumn": 44,
+                        "endOffset": 99
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1168,
+                    "endColumn": 54,
+                    "endOffset": 1218
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 1,
+                        "startOffset": 812,
+                        "endColumn": 51,
+                        "endOffset": 862
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1223,
+                    "endColumn": 54,
+                    "endOffset": 1273
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-land/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 1,
+                        "startOffset": 864,
+                        "endColumn": 51,
+                        "endOffset": 914
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1278,
+                    "endLine": 28,
+                    "endColumn": 12,
+                    "endOffset": 1455
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/values-land/values-land.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 5,
+                        "endColumn": 12,
+                        "endOffset": 232
+                    }
+                }
+            }
+        ]
+    }
+]

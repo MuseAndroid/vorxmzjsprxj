@@ -1,0 +1,54 @@
+//
+//  KISACryptoManager.m
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 8. 29..
+//
+
+#import "KISACryptoManager.h"
+#import "seedcbc.h"
+
+
+@interface KISACryptoManager()
+@property (strong, nonatomic)ExtendWNInterface *exWnInterface;
+@property (strong, nonatomic)NSString *callback;
+@end
+
+@implementation KISACryptoManager
+unsigned char key[16] = {0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x0E,0x0F,0x10};
+unsigned char iv[16] = {0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01};
+
+KISA_SEED_CBC_INFO seed;
+
+-(void)encyptSeed128:(NSString *)jsonData :(ExtendWNInterface *)exInterface {
+    _exWnInterface = exInterface;
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSString *plainData = [json objectForKey:@"plainData"];
+    _callback = [json objectForKey:@"CALLBACK"];
+    
+    NSData *string = [plainData dataUsingEncoding:NSUTF8StringEncoding];
+    
+    unsigned char plaintext [128];
+    unsigned char ciphertext [144];
+    int outlen1, outlen2, result;
+    
+    result = KISA_SEED_CBC_init(&seed, SEED_ENCRYPT, key, iv);
+    if(result == 0){
+        NSLog(@"KISA_SEED_CBC_init failed...");
+        return;
+    }
+    result = KISA_SEED_CBC_process(&seed, plaintext, 128, ciphertext, &outlen1);
+    if(result == 0){
+        NSLog(@"KISA_SEED_CBC_process failed...");
+        return;
+    }
+    result = KISA_SEED_CBC_close(&seed, ciphertext+outlen1, &outlen2);
+//    NSLog(@"cipherText : %@",ciphertext);
+    
+}
+
+
+
+@end

@@ -1,0 +1,29 @@
+//
+//  KSWSettings.h
+//  KSW2_CS_Sample
+//
+//  Created by RaonSecure on 2016. 1. 7..
+//  Copyright © 2016년 RaonSecure. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface KSWSettings : NSObject
+
+@property (nonatomic, strong) NSString *sid_url;
+@property (nonatomic, strong) NSString *cert_url;
+@property (nonatomic, strong) NSString *enc_url;
+@property (nonatomic, strong) NSString *enc_url1;
+
+@property (nonatomic, strong) NSString *sign_url;
+@property (nonatomic, strong) NSString *simpleSign_url;
+@property (nonatomic, strong) NSString *sign_enc_url;
+
+@property (nonatomic, strong) NSString *vid_url;
+
+@property (nonatomic, strong) NSString *icrs_ip;
+@property (nonatomic) NSInteger icrs_port;
+
+@property (nonatomic) NSInteger mtk_mode;
+
+@end

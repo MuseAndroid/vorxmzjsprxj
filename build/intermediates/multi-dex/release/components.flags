@@ -1,0 +1,42 @@
+-injars /Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/transforms/jarMerging/release/jars/1/1f/combined.jar
+-outjars /Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/multi-dex/release/componentClasses.jar
+
+-libraryjars /Users/junho/backupFolder/sdcard_backup/sdk/build-tools/28.0.2/lib/shrinkedAndroid.jar
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **
+-dontwarn **
+-printconfiguration /Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/multi-dex/release/components.flags
+
+
+# view AndroidManifest.xml #generated:53
+-keep class kr.co.genexon.factconnector.implementation.ExtendApplication {
+    <init>(...);
+}
+
+-keep public class * extends android.app.Instrumentation {
+    <init>();
+}
+
+-keep public class * extends android.app.Application {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.fd.** {
+    <fields>;
+    <methods>;
+}

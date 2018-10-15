@@ -1,0 +1,58 @@
+//
+//  Utils.h
+//  FCComMobile
+//
+//  Created by Lee MoonJik on 2017. 11. 9..
+//
+
+#import <Foundation/Foundation.h>
+
+@interface Utils : NSObject
+
+#define DEFINE_SHARED_INSTANCE_USING_BLOCK(block)\
+static dispatch_once_t pred = 0;\
+__strong static id _sharedObject = nil;\
+dispatch_once(&pred, ^{\
+_sharedObject = block();\
+});\
+return _sharedObject;\
+
+#define UIColorFromRGB(rgbValue) \
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
+blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
+alpha:1.0]
+
+#define PAD_RATIO 2
+
+#define CALENDAR_GETEVENTLIST 1
+#define CALENDAR_ADDEVENT 2
+#define CALENDAR_UPDATEEVENT 3
+#define CALENDAR_DELETEEVENT 4
+#define CALENDAR_LOGIN 5
+
++ (NSString*) deviceName;
++ (BOOL) IsiPhoneX;
++ (NSString *) getBundleId;
++ (NSString *) getAppVersion;
++ (NSString *) getBuildNumber;
++ (NSString *) getAppName;
+
+//----------------------------------------------------------------
+//  for splash image
+//----------------------------------------------------------------
++ (BOOL) checkIfiPhone;
++ (BOOL) checkIfiPhone8;
++ (BOOL) checkIfiPhone8Plus;
++ (BOOL) checkIfiPhoneX;
++ (BOOL) checkIfiPad_9_7;
++ (BOOL) checkIfiPad_10_5;
++ (BOOL) checkIfiPad_12_9;
+
+//----------------------------------------------------------------
+//  for splash image
+//----------------------------------------------------------------
++(NSString *)getCertDirectory;
++(NSString *)getCertFilePath;
++(NSString *)getKeyFilePath;
+@end

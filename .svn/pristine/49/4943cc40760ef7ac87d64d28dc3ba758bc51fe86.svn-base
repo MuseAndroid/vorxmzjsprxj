@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="text1">1. TranskeyCtrl Mode - 영문+숫자+특수문자</string>
+	<string name="text2">2. TranskeyCtrl Mode - 숫자</string>
+	<string name="text3">1. TranskeyActivity Mode - 영문+숫자+특수문자</string>
+	<string name="text4">2. TranskeyActivity Mode - 숫자</string>
+	<string name="text5">1. TranskeyPopover Mode - 영문+숫자+특수문자</string>
+	<string name="text6">2. TranskeyPopover Mode - 숫자</string>
+	<string name="text7">1. TranskeyDialog Mode - 영문+숫자+특수문자</string>
+	<string name="text8">2. TranskeyDialog Mode - 숫자</string>
+	<string name="custom_text">1. Custom TranskeyCtrl Mode</string>
+	<string name="inputDataTitle">입력확인</string>
+	<string name="inputDataDone">확인</string>
+	<string name="inputDone">입력완료</string>
+	<string name="fullview_demo">Full View Demo</string>
+	<string name="ctrlview_demo">Control View Demo</string>
+	<string name="popoverview_demo">Popover View Demo</string>
+	<string name="dialogview_demo">Dialog View Demo</string>
+	<string name="webview_demo">Hybrid View Demo - Prev Server </string>
+	<string name="webview_demo_new">Hybrid View Demo - New Server </string>
+	<string name="custom_dialogview_demo">Custom Ctrl View Demo</string>
+	<string name="fullview_demo_with_navi">Full View Demo - with Navibar </string>
+	<string name="ctrlview_demo_with_navi">Control View Demo - with Navibar </string>
+	<string name="popoverview_demo_with_navi">Popover View Demo - with Navibar </string>
+	<string name="dialogview_demo_with_navi">Dialog View Demo - with Navibar </string>
+	
+</resources>

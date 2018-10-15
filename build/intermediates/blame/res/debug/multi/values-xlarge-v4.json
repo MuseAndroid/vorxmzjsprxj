@@ -1,0 +1,558 @@
+[
+    {
+        "outputFile": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 70,
+                    "endOffset": 121
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 70,
+                        "endOffset": 121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 126,
+                    "endColumn": 70,
+                    "endOffset": 192
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 126,
+                        "endColumn": 70,
+                        "endOffset": 192
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 197,
+                    "endColumn": 69,
+                    "endOffset": 262
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 197,
+                        "endColumn": 69,
+                        "endOffset": 262
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 267,
+                    "endColumn": 69,
+                    "endOffset": 332
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 267,
+                        "endColumn": 69,
+                        "endOffset": 332
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 337,
+                    "endColumn": 67,
+                    "endOffset": 400
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 337,
+                        "endColumn": 67,
+                        "endOffset": 400
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 405,
+                    "endColumn": 67,
+                    "endOffset": 468
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 405,
+                        "endColumn": 67,
+                        "endOffset": 468
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 473,
+                    "endColumn": 45,
+                    "endOffset": 514
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 1,
+                        "startOffset": 451,
+                        "endColumn": 42,
+                        "endOffset": 492
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 519,
+                    "endColumn": 49,
+                    "endOffset": 564
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 1,
+                        "startOffset": 593,
+                        "endColumn": 46,
+                        "endOffset": 638
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 569,
+                    "endColumn": 53,
+                    "endOffset": 618
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 1,
+                        "startOffset": 740,
+                        "endColumn": 50,
+                        "endOffset": 789
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 623,
+                    "endColumn": 53,
+                    "endOffset": 672
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 1,
+                        "startOffset": 1124,
+                        "endColumn": 50,
+                        "endOffset": 1173
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 677,
+                    "endColumn": 53,
+                    "endOffset": 726
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 1,
+                        "startOffset": 1175,
+                        "endColumn": 50,
+                        "endOffset": 1224
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 731,
+                    "endColumn": 47,
+                    "endOffset": 774
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 1,
+                        "startOffset": 543,
+                        "endColumn": 44,
+                        "endOffset": 586
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 779,
+                    "endColumn": 47,
+                    "endOffset": 822
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 1,
+                        "startOffset": 494,
+                        "endColumn": 44,
+                        "endOffset": 537
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 827,
+                    "endColumn": 44,
+                    "endOffset": 867
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 1,
+                        "startOffset": 253,
+                        "endColumn": 41,
+                        "endOffset": 293
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 872,
+                    "endColumn": 48,
+                    "endOffset": 916
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 1,
+                        "startOffset": 348,
+                        "endColumn": 45,
+                        "endOffset": 392
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 921,
+                    "endColumn": 49,
+                    "endOffset": 966
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 1,
+                        "startOffset": 398,
+                        "endColumn": 46,
+                        "endOffset": 443
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 971,
+                    "endColumn": 47,
+                    "endOffset": 1014
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 1,
+                        "startOffset": 299,
+                        "endColumn": 44,
+                        "endOffset": 342
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1019,
+                    "endColumn": 46,
+                    "endOffset": 1061
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 1,
+                        "startOffset": 691,
+                        "endColumn": 43,
+                        "endOffset": 733
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1066,
+                    "endColumn": 44,
+                    "endOffset": 1106
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 1,
+                        "startOffset": 645,
+                        "endColumn": 41,
+                        "endOffset": 685
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1111,
+                    "endColumn": 55,
+                    "endOffset": 1162
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 1,
+                        "startOffset": 963,
+                        "endColumn": 52,
+                        "endOffset": 1014
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1167,
+                    "endColumn": 52,
+                    "endOffset": 1215
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 1,
+                        "startOffset": 796,
+                        "endColumn": 49,
+                        "endOffset": 844
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1220,
+                    "endColumn": 54,
+                    "endOffset": 1270
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 1,
+                        "startOffset": 850,
+                        "endColumn": 51,
+                        "endOffset": 900
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1275,
+                    "endColumn": 46,
+                    "endOffset": 1317
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 1,
+                        "startOffset": 203,
+                        "endColumn": 43,
+                        "endOffset": 245
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1322,
+                    "endColumn": 44,
+                    "endOffset": 1362
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 1,
+                        "startOffset": 56,
+                        "endColumn": 41,
+                        "endOffset": 96
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1367,
+                    "endColumn": 49,
+                    "endOffset": 1412
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 1,
+                        "startOffset": 152,
+                        "endColumn": 46,
+                        "endOffset": 197
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1417,
+                    "endColumn": 48,
+                    "endOffset": 1461
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 1,
+                        "startOffset": 102,
+                        "endColumn": 45,
+                        "endOffset": 146
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1466,
+                    "endColumn": 57,
+                    "endOffset": 1519
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 1,
+                        "startOffset": 908,
+                        "endColumn": 54,
+                        "endOffset": 961
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1524,
+                    "endColumn": 54,
+                    "endOffset": 1574
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 1,
+                        "startOffset": 1018,
+                        "endColumn": 51,
+                        "endOffset": 1068
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 1579,
+                    "endColumn": 54,
+                    "endOffset": 1629
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/repo-factconnector/res/values-xlarge/transkey_dimens.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 1,
+                        "startOffset": 1070,
+                        "endColumn": 51,
+                        "endOffset": 1120
+                    }
+                }
+            }
+        ]
+    }
+]

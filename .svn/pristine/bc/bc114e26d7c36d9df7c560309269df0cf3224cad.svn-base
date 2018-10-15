@@ -1,0 +1,25 @@
+//
+//  ExtendWNInterface.h
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ExtendWNInterface : NSObject<WNInterface>
+
+@property (nonatomic, readonly) PPWebViewController *viewController;
+- (void) exWNCheckFirst : (NSString *)jsonData;
+
+-(void)exWNEncryptSeed: (NSString *)jsonData;
+-(void) exWNSendDeviceID:(NSString *)jsonData;
+-(void) exWNgetInsureData:(NSString *)jsonData;
+-(void) exWNsetExtParams:(NSString *)jsonData;
+-(void) exWNgetInsureCompanyData:(NSString *)jsonData;
+-(void) exWNgetLockPassword: (NSString *)jsonData;
+-(void)exWNgetCertList:(NSString *)jsonData;
+-(void)exWNimportCertNumber:(NSString *)jsonData;
+-(void)exWNimportCert:(NSString *)jsonData;
+-(void) exWNShowSecureKeyPad: (NSString *) jsonData;
+-(void)exWNcertCheckPasswd:(NSString *)jsonData;
+-(void)runCallback:(NSString *)callback :(NSString *)result;
+
+@end

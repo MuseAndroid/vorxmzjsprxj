@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+   	<FrameLayout 
+		android:layout_height="fill_parent" 
+		android:layout_width="fill_parent"
+		android:background="@drawable/transkey_bg">
+
+   	    <LinearLayout 
+   	        android:orientation="vertical"
+   	        android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+   	        >
+   	        
+			<ScrollView 
+				android:id="@+id/demoInputView"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				>
+	    	    
+	    	    <LinearLayout 
+					android:orientation="vertical"
+					android:layout_height="fill_parent" 
+					android:layout_width="fill_parent"
+					>
+					
+				    <ImageView
+				    	android:id="@+id/demoTitle" 
+				    	android:layout_height="wrap_content" 
+				    	android:layout_width="fill_parent" 
+						android:background="@drawable/demo_app"
+						/>
+					<!-- 첫번째 텍스트 필드 -->
+				    <TextView 
+				        android:layout_width="wrap_content" 
+					    android:layout_height="wrap_content"
+						android:layout_marginLeft="6dip" 
+						android:layout_marginTop="12dip"  
+						android:textColor="#000000" 
+						android:text="@string/text5" 
+						/>
+					<RelativeLayout 
+					    android:id="@+id/inputlayout01" 
+						android:layout_height="wrap_content" 
+						android:layout_width="wrap_content"
+						android:layout_marginTop="12dip"
+						>
+				 		
+						<ImageButton 
+						    android:layout_width="wrap_content" 
+						    android:layout_height="wrap_content" 
+							android:layout_alignParentRight="true" 
+							android:background="@drawable/demo_security_send"
+							android:id="@+id/ImageButton"
+							android:layout_centerVertical="true"
+							android:contentDescription="@string/transkey_input_security" />
+	
+						<include layout="@layout/transkey_user_editbox" 
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_toLeftOf="@id/ImageButton"
+							android:layout_centerVertical="true"/>	
+		
+				 	</RelativeLayout>
+					<!-- 두번째 텍스트 필드 -->
+					<TextView 
+					    android:layout_width="wrap_content" 
+					    android:layout_height="wrap_content"
+						android:layout_marginLeft="6dip" 
+						android:layout_marginTop="12dip"  
+						android:textColor="#000000" 
+						android:text="@string/text6"
+						/>
+							
+					<RelativeLayout 
+					    android:id="@+id/inputlayout02" 
+						android:layout_height="wrap_content" 
+						android:layout_width="fill_parent"
+						android:layout_marginTop="12dip">
+						<ImageButton 
+						    android:layout_width="wrap_content" 
+						    android:layout_height="wrap_content" 
+							android:layout_alignParentRight="true" 
+							android:background="@drawable/demo_security_send"
+							android:id="@+id/ImageButton"
+							android:layout_centerVertical="true"
+							android:contentDescription="@string/transkey_input_security" />
+	
+						<include layout="@layout/transkey_user_editbox" 
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_toLeftOf="@id/ImageButton"
+							android:layout_centerVertical="true"/>	
+		
+				 	</RelativeLayout>
+					<!-- 입력 확인 -->
+					<ImageButton 
+					    android:layout_width="wrap_content" 
+					    android:layout_height="wrap_content" 
+						android:layout_marginTop="30dip"
+						android:background="@drawable/demo_send" 
+						android:layout_gravity="center_horizontal"
+						android:id="@+id/ImageButton07"
+						android:contentDescription="@string/transkey_input_comfirm" />
+						
+				</LinearLayout>			
+			</ScrollView>
+	
+		    <!-- 키 패드가 들어갈 공간 -->
+		    <FrameLayout
+				android:id="@+id/keypadContainer"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true" 
+				/>
+	    </LinearLayout>
+	    
+	    <!-- 버튼 눌렀을 때 풍선 모양 효과 처리할 공간 -->
+	    <RelativeLayout
+			android:id="@+id/keypadBallon"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent"	/>		
+	 	
+		<!-- 입력 결과  -->
+		<include layout="@layout/demo_result" 
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			/>
+					
+	</FrameLayout>
+		    	
+</RelativeLayout>

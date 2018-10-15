@@ -1,0 +1,157 @@
+//
+//  Utils.m
+//  FCComMobile
+//
+//  Created by Lee MoonJik on 2017. 11. 9..
+//
+
+#import "Utils.h"
+#import <sys/utsname.h>
+
+@implementation Utils
+
++ (NSString *) deviceName {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
+
++ (BOOL) IsiPhoneX {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPhone10"]) {
+        return TRUE;
+    }
+//    else if ([devName hasPrefix:@"x86_64"]) {
+//        return TRUE;
+//    }
+    else {
+        return FALSE;
+    }
+}
+
++ (NSString *) getBundleId {
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+    return bundleIdentifier;
+}
+
++ (NSString *) getAppVersion {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle]infoDictionary];
+    NSString *version = infoDictionary[@"CFBundleShortVersionString"];
+    
+    return version;
+}
+
++ (NSString *) getBuildNumber {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle]infoDictionary];
+    NSString *build = infoDictionary[(NSString*)kCFBundleVersionKey];
+    
+    return build;
+}
+
++ (NSString *) getAppName {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle]infoDictionary];
+    NSString *bundleName = infoDictionary[(NSString *)kCFBundleNameKey];
+    
+    return bundleName;
+}
+
+//----------------------------------------------------------------
+//  for splash image
+//----------------------------------------------------------------
++ (BOOL) checkIfiPhone {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPhone"]) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
++ (BOOL) checkIfiPhone8 {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPhone10,1"]
+        || [devName hasPrefix:@"iPhone10,4"]) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
++ (BOOL) checkIfiPhone8Plus {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPhone10,2"]
+        || [devName hasPrefix:@"iPhone10,5"]) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
++ (BOOL) checkIfiPhoneX {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPhone10,3"]
+        || [devName hasPrefix:@"iPhone10,6"]) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
++ (BOOL) checkIfiPad_9_7 {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPad6,7"]
+        || [devName hasPrefix:@"iPad6,8"]) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
++ (BOOL) checkIfiPad_10_5 {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPad7,3"]
+        || [devName hasPrefix:@"iPad7,4"]) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
++ (BOOL) checkIfiPad_12_9 {
+    NSString *devName = [Utils deviceName];
+    if ([devName hasPrefix:@"iPad6,3"]
+        || [devName hasPrefix:@"iPad6,4"]
+        || [devName hasPrefix:@"iPad7,1"]
+        || [devName hasPrefix:@"iPad7,2"]
+        || [devName hasPrefix:@"iPad7,3"]) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
++(NSString *)getCertFilePath {
+    NSString *documentDir = [self getCertDirectory];
+    return [documentDir stringByAppendingPathComponent:@"signCert.der"];
+}
+
++(NSString *)getKeyFilePath {
+    NSString *documentDir = [self getCertDirectory];
+    return [documentDir stringByAppendingPathComponent:@"signPri.key"];
+}
+
++(NSString *)getCertDirectory {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cert"];
+    return documentsDirectory;
+}
+@end

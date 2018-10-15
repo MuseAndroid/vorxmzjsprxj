@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="56dp"
+    tools:showIn="@layout/activity_lock_password">
+
+    <TextView
+        android:id="@+id/tvPwTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="테스트입니다"
+        android:textColor="#000"
+        android:textSize="12pt"
+        app:layout_constraintBottom_toTopOf="@+id/tvPwDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvPwDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="테스트입니다"
+        android:textColor="#3a7afe"
+        android:textSize="8pt"
+        app:layout_constraintBottom_toTopOf="@+id/ivPwPoint1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwTitle"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint1"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/num_withoutstar"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint2"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/num_withoutstar"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint1"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint3"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/num_withoutstar"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint2"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint4"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/num_withoutstar"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint3"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint5"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/num_withoutstar"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint4"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint6"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:src="@drawable/num_withoutstar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint5"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="312dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnInputOne"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num1" />
+
+            <Button
+                android:id="@+id/btnInputTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num2" />
+
+            <Button
+                android:id="@+id/btnInputThree"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnInputFour"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num4" />
+
+            <Button
+                android:id="@+id/btnInputFive"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num5" />
+
+            <Button
+                android:id="@+id/btnInputSix"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnInputSeven"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num7" />
+
+            <Button
+                android:id="@+id/btnInputEight"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num8" />
+
+            <Button
+                android:id="@+id/btnInputNine"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num9" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDataReset"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num_reset" />
+
+            <Button
+                android:id="@+id/btnInputZero"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num0" />
+
+            <Button
+                android:id="@+id/btnNumberDel"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_num_del" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

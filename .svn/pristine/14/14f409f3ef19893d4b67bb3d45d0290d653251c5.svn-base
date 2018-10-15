@@ -1,0 +1,45 @@
+//
+//  AppDelegate.m
+//
+
+#import "AppDelegate.h"
+#import "AppDelegate+MPush.h"
+#import <MPush/PushManager.h>
+#import <MPush/AppDelegate+PushManager.h>
+
+@interface AppDelegate ()
+
+@property (strong, nonatomic) PPNavigationController *navigationController;
+
+@end
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    navigationController = [MAppDelegate initialViewControllerWithLaunchOptions:launchOptions];
+    
+    [window setBackgroundColor:[UIColor blackColor]];
+    [window setRootViewController:navigationController];
+    [window makeKeyAndVisible];
+    
+    [self application:application didFinishLaunchingWithOptionsForPushService:launchOptions];
+    
+    return YES;
+}
+
+//APNS 메시지 수신시 이벤트가 들어오는 딜리게이트 함수 (APPLE 제공)
+//해당 딜리게이트 함수가 없을 경우 PushManager에서 이벤트를 받아 처리됨
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+//
+//    NSLog( @"didReceiveRemoteNotification: %@", userInfo );
+//
+//    //APNS 메시지를 PushManager로 전달하여야 모피어스PUSH 라이브러리에서 메시지를 처리
+//     [[PushManager defaultManager] application:application didReceiveRemoteNotification:userInfo];
+//}
+
+@synthesize window, navigationController;
+
+@end

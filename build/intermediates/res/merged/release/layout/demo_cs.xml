@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/transkey_bg" >
+
+        <ScrollView
+            android:id="@+id/demo_scroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <RelativeLayout
+                android:id="@+id/demoInputView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <ImageView
+                    android:id="@+id/demoTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/demo_app" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/demoTitle"
+                    android:layout_marginLeft="6dip"
+                    android:layout_marginTop="12dip"
+                    android:text="@string/text1"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/inputlayout01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/demoTitle"
+                    android:layout_marginTop="40dip" >
+
+                    <ImageButton
+                        android:id="@+id/ImageButton01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/demo_security_send"
+                        android:contentDescription="@string/transkey_input_security" />
+                    <!-- 에디트 컨트롤 설정 시작 -->
+
+                    <include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ImageButton01"
+                        layout="@layout/transkey_user_editbox" />
+                    <!-- 에디트 컨트롤 설정 끝 -->
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout01"
+                    android:layout_marginLeft="6dip"
+                    android:layout_marginTop="12dip"
+                    android:text="@string/text2"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/inputlayout02"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout01"
+                    android:layout_marginTop="40dip" >
+
+                    <ImageButton
+                        android:id="@+id/ImageButton02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/demo_security_send"
+                        android:contentDescription="@string/transkey_input_security" />
+
+                    <!-- 에디트 컨트롤 설정 시작 -->
+
+                    <include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/ImageButton02"
+                        layout="@layout/transkey_user_editbox" />
+                    <!-- 에디트 컨트롤 설정 끝 -->
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout02"
+                    android:layout_marginLeft="6dip"
+                    android:layout_marginTop="12dip"
+                    android:text="@string/text3"
+                    android:textColor="#000000"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <RelativeLayout
+                    android:id="@+id/inputlayout03"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout02"
+                    android:layout_marginTop="40dip" >
+
+                    <ImageButton
+                        android:id="@+id/ImageButton03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/demo_security_send"
+                        android:contentDescription="@string/transkey_input_security" />
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dip"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/ImageButton03"
+                        android:background="@android:drawable/editbox_background"
+                        android:clickable="true"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:focusable="true"
+                        android:password="true"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout03"
+                    android:layout_marginLeft="6dip"
+                    android:layout_marginTop="12dip"
+                    android:text="@string/text4"
+                    android:textColor="#000000"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <RelativeLayout
+                    android:id="@+id/inputlayout04"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout03"
+                    android:layout_marginTop="40dip" >
+
+                    <ImageButton
+                        android:id="@+id/ImageButton04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/demo_security_send"
+                        android:contentDescription="@string/transkey_input_security" />
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dip"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/ImageButton04"
+                        android:background="@android:drawable/editbox_background"
+                        android:clickable="true"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:focusable="true"
+                        android:password="true"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout04"
+                    android:layout_marginLeft="6dip"
+                    android:layout_marginTop="12dip"
+                    android:text="@string/text5"
+                    android:textColor="#000000"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <RelativeLayout
+                    android:id="@+id/inputlayout05"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout04"
+                    android:layout_marginTop="40dip" >
+
+                    <ImageButton
+                        android:id="@+id/ImageButton05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/demo_security_send"
+                        android:contentDescription="@string/transkey_input_security" />
+
+                    <!-- 에디트 컨트롤 설정 시작 -->
+
+                    <include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/ImageButton05"
+                        layout="@layout/transkey_user_editbox" />
+
+                    <!-- 에디트 컨트롤 설정 끝 -->
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout05"
+                    android:layout_marginLeft="6dip"
+                    android:layout_marginTop="12dip"
+                    android:text="@string/text6"
+                    android:textColor="#000000"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <RelativeLayout
+                    android:id="@+id/inputlayout06"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout05"
+                    android:layout_marginTop="40dip" >
+
+                    <ImageButton
+                        android:id="@+id/ImageButton06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/demo_security_send"
+                        android:contentDescription="@string/transkey_input_security" />
+
+                    <!-- 에디트 컨트롤 설정 시작 -->
+
+                    <include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/ImageButton06"
+                        layout="@layout/transkey_user_editbox" />
+
+                    <!-- 에디트 컨트롤 설정 끝 -->
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/ImageButton07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/inputlayout06"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dip"
+                    android:background="@drawable/demo_send"
+                    android:contentDescription="@string/transkey_input_comfirm" />
+            </RelativeLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/mainlayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            layout="@layout/transkey_user_keypad_frame" />
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            layout="@layout/demo_result" />
+    </FrameLayout>
+
+</RelativeLayout>

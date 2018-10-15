@@ -1,0 +1,451 @@
+//
+//  LockPasswordViewController.m
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 5..
+//
+
+#import "LockPasswordViewController.h"
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
+
+@interface LockPasswordViewController ()
+@property (strong, nonatomic) UILabel *lock_title;
+@property (strong, nonatomic) UILabel *lock_desc;
+@property (strong, nonatomic) UIView *input_display;
+@property (strong, nonatomic) UIImageView *disp_one;
+@property (strong, nonatomic) UIImageView *disp_two;
+@property (strong, nonatomic) UIImageView *disp_three;
+@property (strong, nonatomic) UIImageView *disp_four;
+@property (strong, nonatomic) UIImageView *disp_five;
+@property (strong, nonatomic) UIImageView *disp_six;
+@property (strong, nonatomic) NSArray *display_array;
+
+@property (strong, nonatomic) UIButton *one;
+@property (strong, nonatomic) UIButton *two;
+@property (strong, nonatomic) UIButton *three;
+@property (strong, nonatomic) UIButton *four;
+@property (strong, nonatomic) UIButton *five;
+@property (strong, nonatomic) UIButton *six;
+@property (strong, nonatomic) UIButton *seven;
+@property (strong, nonatomic) UIButton *eight;
+@property (strong, nonatomic) UIButton *nine;
+@property (strong, nonatomic) UIButton *zero;
+@property (strong, nonatomic) UIButton *option;
+@property (strong, nonatomic) UIButton *delete;
+
+@property (strong, nonatomic) ExtendWNInterface *exWnInterface;
+@property (strong, nonatomic) NSString *callback;
+@end
+
+@implementation LockPasswordViewController
+
+NSDictionary *json;
+NSMutableString *passwd;
+NSString *temp_passwd;
+BOOL confirm_passwd = NO;
+NSString *mode; //0: 비밀번호 설정, 1: 비밀번호 입력
+
+//숫자 키패드
+NSNumber *digitWidth;
+NSNumber *digitHeight;
+//입력 표시 display icon
+int dispWidth;
+int dispHeight;
+
+#pragma mark -
+#pragma mark Life Cycle
+-(instancetype)initWithParams :(NSString *)jsonData :(ExtendWNInterface *)exInterface{
+    self = [super init];
+    if(self){
+        NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+        json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        _exWnInterface = exInterface;
+        mode = [json objectForKey:@"option"] == nil? @"0":[json objectForKey:@"option"];
+        passwd = [[NSMutableString alloc] init];
+        _callback = [json objectForKey:@"CALLBACK"];
+    }
+
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor = UIColor.whiteColor;
+    
+    digitWidth = @100;
+    digitHeight= @60;
+    dispWidth = 32;
+    dispHeight = 32;
+    
+    [self makeUI];
+    [self makeConstraint];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark private
+-(void) inputNumber:(UIButton *)sender {
+    int idx = (int)[passwd length];
+    if(idx <= 6){
+        NSString *digit = [NSString stringWithFormat:@"%ld", (long)sender.tag];
+        [self composeString:digit :idx+1];
+    }
+    
+    if ([passwd length] == 6){
+        if([mode isEqualToString:@"0"]){ //사용자 비밀번호 설정. confirm passwd 필요
+            if(!confirm_passwd){
+                temp_passwd = [NSString stringWithFormat:@"%@", passwd];
+                [self changeForConfirm];
+                confirm_passwd = YES;
+            }else{
+                if([temp_passwd isEqualToString:passwd]){
+                    confirm_passwd = NO;
+                    [self->_lock_title setText:@"비밀번호 인증완료"];
+                    [self->_lock_desc setText:@"앱 잠금 비밀번호가 설정되었습니다."];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        NSDictionary *result = @{
+                                                 @"resultCode":@"0000",
+                                                 @"resultData": passwd
+                                                 };
+                        NSString *resultStr = [result jsonString];
+                        [self->_exWnInterface runCallback: self->_callback:resultStr];
+                        [self dismissViewControllerAnimated:NO completion:nil];
+                    });
+
+                }else{
+                    [self showAlert:@"비밀번호가 일치하지 않습니다."];
+                }
+            }
+            
+        }else{ // interface callback.
+            NSDictionary *result = @{
+                                     @"resultCode":@"0000",
+                                     @"resultData": passwd
+                                     };
+            NSString *resultStr = [result jsonString];
+            [_exWnInterface runCallback: _callback:resultStr];
+            [self dismissViewControllerAnimated:NO completion:nil];
+        }
+    }
+
+}
+
+-(void) deleteNumber:(UIButton *)sender {
+    int index = (int)[passwd length];
+    if(index == 0){
+        return;
+    }
+    [passwd deleteCharactersInRange:NSMakeRange([passwd length]-1, 1)];
+    [self display_digit:index-1];
+}
+
+-(void) composeString:(NSString *)digit :(int) index{
+    [passwd appendString:digit];
+    [self display_digit:index];
+}
+
+-(void) display_digit:(int) index {
+    for(int i =0; i< [_display_array count];i++){
+        UIImageView *view;
+        view = _display_array[i];
+        if(i < index){
+            view.image = [UIImage imageNamed:@"count_display_focused"];
+        }else{
+            view.image = [UIImage imageNamed:@"count_display_normal"];
+        }
+    }
+}
+
+-(void) changeForConfirm {
+    [passwd setString:@""];
+    [self display_digit:0];
+    [_lock_title setText:@"잠금 비밀번호 재확인"];
+    [_lock_desc setText:@"확인을 위해 한 번 더 입력해 주세요"];
+}
+
+-(void)showAlert :(NSString *)message {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Warning"
+                                  message:message
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"확인"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+
+#pragma mark -
+#pragma mark UI & Constraint
+-(void) makeUI {
+    _lock_title = [[UILabel alloc] init];
+    [_lock_title setFont:[UIFont boldSystemFontOfSize:20]];
+    _lock_title.textColor = [UIColor blackColor];
+    NSString *title = [json objectForKey:@"title"] == nil? @"":[json objectForKey:@"title"];
+    [_lock_title setText:title];
+    [_lock_title setTextAlignment:NSTextAlignmentCenter];
+    
+    _lock_desc = [[UILabel alloc] init];
+    [_lock_desc setFont:[UIFont systemFontOfSize:13]];
+    _lock_title.textColor = [UIColor blackColor];
+    NSString *desc = [json objectForKey:@"desc"] == nil? @"":[json objectForKey:@"desc"];
+    [_lock_desc setText:desc];
+    [_lock_desc setTextAlignment:NSTextAlignmentCenter];
+    
+    _input_display = [[UIView alloc] init];
+    
+    _disp_one = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, dispWidth, dispHeight)];
+    _disp_one.image = [UIImage imageNamed:@"count_display_normal"];
+    
+    _disp_two = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, dispWidth, dispHeight)];
+    _disp_two.image = [UIImage imageNamed:@"count_display_normal"];
+    
+    _disp_three = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, dispWidth, dispHeight)];
+    _disp_three.image = [UIImage imageNamed:@"count_display_normal"];
+    
+    _disp_four = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, dispWidth, dispHeight)];
+    _disp_four.image = [UIImage imageNamed:@"count_display_normal"];
+    
+    _disp_five = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, dispWidth, dispHeight)];
+    _disp_five.image = [UIImage imageNamed:@"count_display_normal"];
+    
+    _disp_six = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, dispWidth, dispHeight)];
+    _disp_six.image = [UIImage imageNamed:@"count_display_normal"];
+    
+    _display_array = [NSArray arrayWithObjects:_disp_one,_disp_two, _disp_three, _disp_four, _disp_five, _disp_six, nil];
+    
+    [_input_display addSubview:_disp_one];
+    [_input_display addSubview:_disp_two];
+    [_input_display addSubview:_disp_three];
+    [_input_display addSubview:_disp_four];
+    [_input_display addSubview:_disp_five];
+    [_input_display addSubview:_disp_six];
+    
+    _one = [[UIButton alloc] init];
+    [_one setTitle:@"1" forState:UIControlStateNormal];
+    [_one setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _two = [[UIButton alloc] init];
+    [_two setTitle:@"2" forState:UIControlStateNormal];
+    [_two setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _three = [[UIButton alloc] init];
+    [_three setTitle:@"3" forState:UIControlStateNormal];
+    [_three setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _four = [[UIButton alloc] init];
+    [_four setTitle:@"4" forState:UIControlStateNormal];
+    [_four setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _five = [[UIButton alloc] init];
+    [_five setTitle:@"5" forState:UIControlStateNormal];
+    [_five setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _six = [[UIButton alloc] init];
+    [_six setTitle:@"6" forState:UIControlStateNormal];
+    [_six setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _seven = [[UIButton alloc] init];
+    [_seven setTitle:@"7" forState:UIControlStateNormal];
+    [_seven setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _eight = [[UIButton alloc] init];
+    [_eight setTitle:@"8" forState:UIControlStateNormal];
+    [_eight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _nine = [[UIButton alloc] init];
+    [_nine setTitle:@"9" forState:UIControlStateNormal];
+    [_nine setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _zero = [[UIButton alloc] init];
+    [_zero setTitle:@"0" forState:UIControlStateNormal];
+    [_zero setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _option = [[UIButton alloc] init];
+
+    NSString *option = [json objectForKey:@"option"] == nil? @"0":[json objectForKey:@"option"];
+    NSString *optionTitle;
+    if([option isEqualToString:@"1"]){
+        optionTitle = @"초기화";
+    }else{
+        optionTitle = @"";
+    }
+    [_option setTitle:optionTitle forState:UIControlStateNormal];
+    [_option setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _delete = [[UIButton alloc] init];
+    [_delete setTitle:@"⌫" forState:UIControlStateNormal];
+    [_delete setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_delete addTarget:self action:@selector(deleteNumber:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_one setTag:1];
+    [_one addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_two setTag:2];
+    [_two addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_three setTag:3];
+    [_three addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_four setTag:4];
+    [_four addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_five setTag:5];
+    [_five addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_six setTag:6];
+    [_six addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_seven setTag:7];
+    [_seven addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_eight setTag:8];
+    [_eight addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_nine setTag:9];
+    [_nine addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    [_zero setTag:0];
+    [_zero addTarget:self action:@selector(inputNumber:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:_lock_title];
+    [self.view addSubview:_lock_desc];
+    [self.view addSubview: _input_display];
+    [self.view addSubview:_one];
+    [self.view addSubview:_two];
+    [self.view addSubview:_three];
+    [self.view addSubview:_four];
+    [self.view addSubview:_five];
+    [self.view addSubview:_six];
+    [self.view addSubview:_seven];
+    [self.view addSubview:_eight];
+    [self.view addSubview:_nine];
+    [self.view addSubview:_zero];
+    [self.view addSubview:_option];
+    [self.view addSubview:_delete];
+
+}
+
+-(void) makeConstraint {
+    [_lock_title makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(100);
+        make.centerX.equalTo(self.view);
+//        make.left.equalTo(@20);
+//        make.right.equalTo(@-20);
+    }];
+    [_lock_desc mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self->_lock_title.bottom).offset(20);
+        make.centerX.equalTo(self->_lock_title);
+//        make.left.equalTo(@20);
+//        make.right.equalTo(@-20);
+    }];
+    [self makeInputDisplay];
+    [self makeNumberPad];
+}
+
+-(void)makeInputDisplay {
+    [_input_display mas_makeConstraints:^(MASConstraintMaker *make) {
+        NSNumber *width = @(dispWidth*6);
+        make.top.equalTo(self->_lock_desc.bottom).offset(50);
+        make.width.equalTo(width);
+        make.height.equalTo(@(dispHeight));
+        make.centerX.equalTo(self.view);
+    }];
+    [_disp_one mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self->_input_display);
+        make.left.equalTo(self->_input_display);
+    }];
+    [_disp_two mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self->_disp_one);
+        make.left.equalTo(self->_disp_one.right);
+    }];
+    [_disp_three makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self->_disp_two);
+        make.left.equalTo(self->_disp_two.right);
+    }];
+    [_disp_four makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self->_disp_three);
+        make.left.equalTo(self->_disp_three.right);
+    }];
+    [_disp_five makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self->_disp_four);
+        make.left.equalTo(self->_disp_four.right);
+    }];
+    [_disp_six makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self->_disp_five);
+        make.left.equalTo(self->_disp_five.right);
+    }];
+}
+-(void) makeNumberPad {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    
+    [_two makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_input_display.bottom).offset(100);
+        make.centerX.equalTo(self.view);
+    }];
+    [_one makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_two);
+        make.right.equalTo(self->_two.left);
+    }];
+    [_three makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_two);
+        make.left.equalTo(self->_two.right);
+    }];
+    [_four makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_one.bottom);
+        make.left.equalTo(self->_one);
+    }];
+    [_five makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_four);
+        make.left.equalTo(self->_four.right);
+    }];
+    [_six makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_four);
+        make.left.equalTo(self->_five.right);
+    }];
+    [_seven makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_four.bottom);
+        make.left.equalTo(self->_four);
+    }];
+    [_eight makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_seven);
+        make.left.equalTo(self->_seven.right);
+    }];
+    [_nine makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_seven);
+        make.left.equalTo(self->_eight.right);
+    }];
+    [_option makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_seven.bottom);
+        make.left.equalTo(self->_seven);
+    }];
+    [_zero makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_option);
+        make.left.equalTo(self->_option.right);
+    }];
+    [_delete makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(digitWidth);
+        make.height.equalTo(digitHeight);
+        make.top.equalTo(self->_option);
+        make.left.equalTo(self->_zero.right);
+    }];
+}
+@end

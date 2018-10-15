@@ -1,0 +1,56 @@
+//
+//  KSWSettings.m
+//  KSW2_CS_Sample
+//
+//  Created by RaonSecure on 2016. 1. 7..
+//  Copyright © 2016년 RaonSecure. All rights reserved.
+//
+
+#import "KSWSettings.h"
+
+//WAS 서버 주소
+#define SID @"http://ksbiz.raonsecure.com:8080/ksbiz/sid.jsp"
+//#define  SID @"http://ai.nhfire.co.kr/i2cowork/raon/sid.do"
+
+#define CERT @"http://ksbiz.raonsecure.com:8080/ksbiz/servercert.jsp"
+//#define CERT @"http://ai.nhfire.co.kr/i2cowork/raon/servercert.do"
+
+#define ENC @"http://ksbiz.raonsecure.com:8080/kshybrid/encResult_cs.jsp"
+#define ENC1 @"http://ksbiz.raonsecure.com:8080/kshybrid/encResultJson_cs.jsp"
+
+#define SIGN @"http://ksbiz.raonsecure.com:8080/kshybrid/signAction_cs.jsp"
+//#define SIGN @"http://210.104.24.45:9200/sample/signAction_cs.jsp"
+#define SIMPLE_SIGN @"http://ksbiz.raonsecure.com:8080/kshybrid/simpleSignAction_cs.jsp"
+#define SIGN_ENC @"http://ksbiz.raonsecure.com:8080/kshybrid/signEncAction_cs.jsp"
+
+#define VID @"http://ksbiz.raonsecure.com:8080/kshybrid/vidAction_cs.jsp"
+
+//중계 서버 주소
+#define ICRS_IP @"211.32.131.182"
+//#define ICRS_IP @"d.touchen.co.kr/kscertrelay"
+#define ICRS_PORT 10500
+
+//가상키패드 연동 //0:미적용 1:mtk복호화 2:ksw복호화
+#define MTK_MODE 1
+
+@implementation KSWSettings
+
+- (id)init
+{
+    [self setSid_url:SID];
+    [self setCert_url:CERT];
+    [self setEnc_url:ENC];
+    [self setEnc_url1:ENC1];
+    [self setSign_url:SIGN];
+    [self setSimpleSign_url:SIMPLE_SIGN];
+    [self setSign_enc_url:SIGN_ENC];
+    
+    [self setVid_url:VID];
+    
+    [self setIcrs_ip:ICRS_IP];
+    [self setIcrs_port:ICRS_PORT];
+    [self setMtk_mode:MTK_MODE];
+    return self;
+}
+
+@end

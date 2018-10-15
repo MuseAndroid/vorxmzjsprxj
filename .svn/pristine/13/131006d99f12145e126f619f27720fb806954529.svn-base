@@ -1,0 +1,230 @@
+[
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/anim/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_right_out.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_right_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_shrink_from_bottomright_to_topleft.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_shrink_from_bottomright_to_topleft.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_pump_top.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_pump_top.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/anim/design_snackbar_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_rail.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_rail.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_shrink_from_top.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_shrink_from_top.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_hold.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_hold.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_none_in.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_none_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_grow_from_bottomleft_to_topright.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_grow_from_bottomleft_to_topright.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/slide_out_left.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/slide_out_left.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_bottom_in.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_bottom_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_grow_from_bottomright_to_topleft.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_grow_from_bottomright_to_topleft.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/slide_in_right.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/slide_in_right.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_disappear.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_disappear.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_tooltip_exit.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_shrink_from_bottom.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_shrink_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/fade_back.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/fade_back.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_shrink_from_topleft_to_bottomright.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_shrink_from_topleft_to_bottomright.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/slide_in_left.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/slide_in_left.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_fade_out.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_fade_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_tooltip_enter.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_shrink_from_bottomleft_to_topright.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_shrink_from_bottomleft_to_topright.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_none_out.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_none_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_zoom_out.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_zoom_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/stay.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/stay.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_bottom_out.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_bottom_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/vibrate_anim.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/vibrate_anim.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_grow_from_topright_to_bottomleft.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_grow_from_topright_to_bottomleft.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_left_out.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_left_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_grow_from_topleft_to_bottomright.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_grow_from_topleft_to_bottomright.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_left_in.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_left_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_right_in.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_right_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_top_out.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_top_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/slide_out_right.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/slide_out_right.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_grow_from_top.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_grow_from_top.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_zoom_exit.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_zoom_exit.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/anim/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_grow_from_bottom.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_grow_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_fade_in.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_fade_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_zoom_enter.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_zoom_enter.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_pump_bottom.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_pump_bottom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/transkey_shrink_from_topright_to_bottomleft.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/transkey_shrink_from_topright_to_bottomleft.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/fade_foward.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/fade_foward.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_zoom_in.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_zoom_in.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/debug/anim/core_slide_top_in.xml",
+        "source": "/Users/junho/Documents/morpheus/repo-factconnector/res/anim/core_slide_top_in.xml"
+    }
+]

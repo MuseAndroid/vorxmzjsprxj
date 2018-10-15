@@ -1,0 +1,10 @@
+//
+//  PushReceiver.h
+//
+
+#import <UIKit/UIKit.h>
+#import <MPush/PushManager.h>
+
+@interface PushReceiver : NSObject <PushManagerDelegate>
+
+@end

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <attr format="reference" name="coordinatorLayoutStyle"/>
+    <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
+    <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
+    <color name="common_google_signin_btn_text_dark_pressed">@android:color/white</color>
+    <color name="common_google_signin_btn_text_light_default">#90000000</color>
+    <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_light_focused">#90000000</color>
+    <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
+    <color name="listitem_div">#ffc2c7da</color>
+    <color name="notification_action_color_filter">#ffffffff</color>
+    <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="notification_material_background_media_default_color">#ff424242</color>
+    <color name="primary_text_default_material_dark">#ffffffff</color>
+    <color name="ripple_material_light">#1f000000</color>
+    <color name="secondary_text_default_material_dark">#b3ffffff</color>
+    <color name="secondary_text_default_material_light">#8a000000</color>
+    <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="color|reference" name="statusBarBackground"/></declare-styleable>
+    <declare-styleable name="CoordinatorLayout_Layout"><attr name="android:layout_gravity"/><attr format="string" name="layout_behavior"/><attr format="reference" name="layout_anchor"/><attr format="integer" name="layout_keyline"/><attr name="layout_anchorGravity">
+            
+            <flag name="top" value="0x30"/>
+            
+            <flag name="bottom" value="0x50"/>
+            
+            <flag name="left" value="0x03"/>
+            
+            <flag name="right" value="0x05"/>
+            
+            <flag name="center_vertical" value="0x10"/>
+            
+            <flag name="fill_vertical" value="0x70"/>
+            
+            <flag name="center_horizontal" value="0x01"/>
+            
+            <flag name="fill_horizontal" value="0x07"/>
+            
+            <flag name="center" value="0x11"/>
+            
+            <flag name="fill" value="0x77"/>
+            
+            <flag name="clip_vertical" value="0x80"/>
+            
+            <flag name="clip_horizontal" value="0x08"/>
+            
+            <flag name="start" value="0x00800003"/>
+            
+            <flag name="end" value="0x00800005"/>
+        </attr><attr format="enum" name="layout_insetEdge">
+            
+            <enum name="none" value="0x0"/>
+            
+            <enum name="top" value="0x30"/>
+            
+            <enum name="bottom" value="0x50"/>
+            
+            <enum name="left" value="0x03"/>
+            
+            <enum name="right" value="0x05"/>
+            
+            <enum name="start" value="0x00800003"/>
+            
+            <enum name="end" value="0x00800005"/>
+        </attr><attr name="layout_dodgeInsetEdges">
+            
+            <flag name="none" value="0x0"/>
+            
+            <flag name="top" value="0x30"/>
+            
+            <flag name="bottom" value="0x50"/>
+            
+            <flag name="left" value="0x03"/>
+            
+            <flag name="right" value="0x05"/>
+            
+            <flag name="start" value="0x00800003"/>
+            
+            <flag name="end" value="0x00800005"/>
+            
+            <flag name="all" value="0x77"/>
+        </attr></declare-styleable>
+    <declare-styleable name="FontFamily"><attr format="string" name="fontProviderAuthority"/><attr format="string" name="fontProviderPackage"/><attr format="string" name="fontProviderQuery"/><attr format="reference" name="fontProviderCerts"/><attr name="fontProviderFetchStrategy">
+            
+            <enum name="blocking" value="0"/>
+            
+            <enum name="async" value="1"/>
+        </attr><attr format="integer" name="fontProviderFetchTimeout">
+          
+            <enum name="forever" value="-1"/>
+        </attr></declare-styleable>
+    <declare-styleable name="FontFamilyFont"><attr name="fontStyle">
+            <enum name="normal" value="0"/>
+            <enum name="italic" value="1"/>
+        </attr><attr format="reference" name="font"/><attr format="integer" name="fontWeight"/><attr name="android:fontStyle"/><attr name="android:font"/><attr name="android:fontWeight"/></declare-styleable>
+    <declare-styleable name="LoadingImageView"><attr name="imageAspectRatioAdjust">
+<enum name="none" value="0"/>
+
+<enum name="adjust_width" value="1"/>
+
+<enum name="adjust_height" value="2"/>
+
+</attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
+    <declare-styleable name="SignInButton"><attr format="reference" name="buttonSize">
+<enum name="standard" value="0"/>
+
+<enum name="wide" value="1"/>
+
+<enum name="icon_only" value="2"/>
+
+</attr><attr format="reference" name="colorScheme">
+<enum name="dark" value="0"/>
+
+<enum name="light" value="1"/>
+
+<enum name="auto" value="2"/>
+
+</attr><attr format="reference|string" name="scopeUris"/></declare-styleable>
+    <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
+    <dimen name="compat_button_inset_vertical_material">6dp</dimen>
+    <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
+    <dimen name="compat_button_padding_vertical_material">4dp</dimen>
+    <dimen name="compat_control_corner_material">2dp</dimen>
+    <dimen name="notification_action_icon_size">32dp</dimen>
+    <dimen name="notification_action_text_size">13sp</dimen>
+    <dimen name="notification_big_circle_margin">12dp</dimen>
+    <dimen name="notification_content_margin_start">8dp</dimen>
+    <dimen name="notification_large_icon_height">64dp</dimen>
+    <dimen name="notification_large_icon_width">64dp</dimen>
+    <dimen name="notification_main_column_padding_top">10dp</dimen>
+    <dimen name="notification_media_narrow_margin">@dimen/notification_content_margin_start</dimen>
+    <dimen name="notification_right_icon_size">16dp</dimen>
+    <dimen name="notification_right_side_padding_top">2dp</dimen>
+    <dimen name="notification_small_icon_background_padding">3dp</dimen>
+    <dimen name="notification_small_icon_size_as_large">24dp</dimen>
+    <dimen name="notification_subtext_size">13sp</dimen>
+    <dimen name="notification_top_pad">10dp</dimen>
+    <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
+    <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
+    <item name="line1" type="id"/>
+    <item name="line3" type="id"/>
+    <item name="tag_transition_group" type="id"/>
+    <item name="text" type="id"/>
+    <item name="text2" type="id"/>
+    <item name="title" type="id"/>
+    <integer name="cancel_button_image_alpha">127</integer>
+    <integer name="google_play_services_version">12451000</integer>
+    <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="alert_title">위치 서비스 사용</string>
+    <string name="app_name">factconnector</string>
+    <string name="app_package">kr.co.genexon.factconnector</string>
+    <string name="cancel">Cancel</string>
+    <string name="check_gps_alert_message">자동 위치정보전송을 동의하시겠습니까?</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are missing from your device.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. Please try again.</string>
+    <string name="common_google_play_services_unsupported_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are not supported by your device.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update Google Play services.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are currently updating.</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="confirm_button">확인</string>
+    <string name="default_web_client_id" translatable="false">589145637508-uhdknq14qtf1m7oh42j30msu1ursbua9.apps.googleusercontent.com</string>
+    <string name="engine_key">ced0cb1e-9b90-11e8-8dd9-80c16e782f98</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="firebase_database_url" translatable="false">https://factconnector-3f886.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">589145637508</string>
+    <string name="google_api_key" translatable="false">AIzaSyBuJe9tU4gVwfhbnF5jk1QUJADXj6_o3Gg</string>
+    <string name="google_app_id" translatable="false">1:589145637508:android:423cbd30535ff096</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBuJe9tU4gVwfhbnF5jk1QUJADXj6_o3Gg</string>
+    <string name="google_storage_bucket" translatable="false">factconnector-3f886.appspot.com</string>
+    <string name="gps_off">취소</string>
+    <string name="gps_on">설정하기</string>
+    <string name="hello">Hello World, HybridMobileApp!</string>
+    <string name="lib_name">Core</string>
+    <string name="mp_addon_audiorecoder_list">목록</string>
+    <string name="mp_addon_audiorecoder_recoding">Ready</string>
+    <string name="mp_addon_audiorecoder_save_complete">저장이 완료 되었습니다.</string>
+    <string name="mp_addon_audiorecoder_stop">Recoding</string>
+    <string name="mp_addon_file_reading_file">파일을 읽는 중 입니다.\n잠시만 기다려주세요.</string>
+    <string name="mp_addon_file_ready">준비중입니다.</string>
+    <string name="mp_addon_maxpicker">사진은 총 %d개까지만 첨부 가능합니다.</string>
+    <string name="mp_addon_media_please_wait">잠시만 기다려주세요.</string>
+    <string name="mp_addon_net_data_transgering_msg">데이터 송수신 중입니다.\n잠시만 기다려 주세요.</string>
+    <string name="mp_addon_net_error_msg_internal_network1">보내는 데이터 설정 중 오류가 발생하였습니다. 다시 시도해주세요.</string>
+    <string name="mp_addon_net_error_msg_internal_network2">보내는 데이터 설정 중 오류가 발생하였습니다. 다시 시도해주세요.</string>
+    <string name="mp_addon_net_error_msg_internal_network3">받은 데이터를 처리중에 에러가 발생하였습니다. 다시 시도해주세요.</string>
+    <string name="mp_addon_net_ext_fail_file_download">파일 다운로드에 실패하였습니다.</string>
+    <string name="mp_addon_net_ext_fail_file_upload">파일 업로드에 실패하였습니다.</string>
+    <string name="mp_addon_net_ext_ftp_read_list">목록을 읽어 옵니다.</string>
+    <string name="mp_addon_net_ext_resource_update_checking">리소스 업데이트 확인 중입니다.</string>
+    <string name="mp_addon_net_ext_start_file_download">파일 다운로드를 시작합니다.</string>
+    <string name="mp_addon_net_ext_start_file_upload">파일 업로드를 시작합니다.</string>
+    <string name="mp_addon_net_ext_success_file_download">파일 다운로드가 완료되었습니다.</string>
+    <string name="mp_addon_net_ext_success_file_upload">파일 업로드가 완료되었습니다.</string>
+    <string name="mp_addon_net_ext_transfer_type_incorrect">전송 Type 설정이 잘못되었습니다.</string>
+    <string name="mp_addon_popup_day">일</string>
+    <string name="mp_addon_popup_friday">(금)</string>
+    <string name="mp_addon_popup_monday">(월)</string>
+    <string name="mp_addon_popup_month">월</string>
+    <string name="mp_addon_popup_saturday">(토)</string>
+    <string name="mp_addon_popup_sunday">(일)</string>
+    <string name="mp_addon_popup_thursday">(목)</string>
+    <string name="mp_addon_popup_tuesday">(화)</string>
+    <string name="mp_addon_popup_wednesday">(수)</string>
+    <string name="mp_addon_popup_year">년</string>
+    <string name="mp_addon_zip_unzipping">압축 해제 중입니다.</string>
+    <string name="mp_back">뒤로</string>
+    <string name="mp_cancel">취소</string>
+    <string name="mp_cannot_find_server_name">설정파일에서 서버 이름을 찾을 수 없습니다.</string>
+    <string name="mp_cannot_found_zip_file">압축 대상의 파일을 찾을 수 없습니다.</string>
+    <string name="mp_check_zip_file_extension">압축 후 저장 파일명의 확장자를 확인하세요</string>
+    <string name="mp_detail_photo">상세 보기</string>
+    <string name="mp_error">오류</string>
+    <string name="mp_exit">종료</string>
+    <string name="mp_fail_ftp_read_list">목록을 읽어 오는데 실패했습니다.</string>
+    <string name="mp_file_send">파일 전송</string>
+    <string name="mp_file_sending">파일을 전송 중입니다.</string>
+    <string name="mp_license_broken">라이센스 파일이 원본과 다릅니다.</string>
+    <string name="mp_license_error">라이센스 파일 검사 중 오류가 발생하였습니다.</string>
+    <string name="mp_media_scanning">미디어 스캐닝 중...</string>
+    <string name="mp_network_connection_error">네트워크 연결에 실패하였습니다.</string>
+    <string name="mp_network_error">네트워크 통신 중 오류가 발생하였습니다.</string>
+    <string name="mp_network_timeout">응답 시간을 초과하였습니다.</string>
+    <string name="mp_network_url_error">네트워크 연결값이 잘못되었습니다.</string>
+    <string name="mp_no">아니오</string>
+    <string name="mp_notice">알림</string>
+    <string name="mp_notice_check_proxy">정보 보호를 위해, proxy가 설정된 기기에서는 프로그램을 실행 할 수 없습니다.</string>
+    <string name="mp_ok">확인</string>
+    <string name="mp_regist_push_service">PUSH 서비스를 등록 중입니다.</string>
+    <string name="mp_resource_copy_is_completed">프로그램 초기화 완료.</string>
+    <string name="mp_resource_is_copying">프로그램 초기화 중입니다.</string>
+    <string name="mp_rooted_device">Rooting 된 단말기 입니다.</string>
+    <string name="mp_rooting_device_cannot_use">본 서비스 루팅된 단말기에서는 사용할수 없습니다.\n정상단말기에서 사용하시기 바랍니다.</string>
+    <string name="mp_select_all">전체 선택</string>
+    <string name="mp_select_folder">폴더 선택</string>
+    <string name="mp_select_photo">미디어 선택</string>
+    <string name="mp_select_video">동영상 선택</string>
+    <string name="mp_unselect_all">전체 선택 해제</string>
+    <string name="mp_yes">예</string>
+    <string name="nbutton1">통신테스트</string>
+    <string name="nbutton2">네이티브화면</string>
+    <string name="nbutton3">UI웹화면</string>
+    <string name="no_storage_card">No storage card</string>
+    <string name="not_enough_space">Not enough space</string>
+    <string name="not_use_alert_message">정확한\n위치정보 제공에 제약이 있을 수 있습니다.</string>
+    <string name="preparing_card">Preparing card</string>
+    <string name="project_id" translatable="false">factconnector-3f886</string>
+    <string name="sTitle1">받은 파라메터 데이터</string>
+    <string name="sTitle2">Network error</string>
+    <string name="save">Save</string>
+    <string name="saving_image">Saving image</string>
+    <string name="searching_message">현재 위치를 찾는 중입니다.</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <style name="CropButton">
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/addon_media_crop_selector_crop_button</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/>
+    <style name="TextAppearance.Compat.Notification.Info">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Info.Media"/>
+    <style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/>
+    <style name="TextAppearance.Compat.Notification.Line2.Media" parent="TextAppearance.Compat.Notification.Info.Media"/>
+    <style name="TextAppearance.Compat.Notification.Media"/>
+    <style name="TextAppearance.Compat.Notification.Time">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Time.Media"/>
+    <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+    <style name="TextAppearance.Compat.Notification.Title.Media"/>
+    <style name="Widget.Compat.NotificationActionContainer" parent=""/>
+    <style name="Widget.Compat.NotificationActionText" parent=""/>
+    <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
+        <item name="statusBarBackground">#000000</item>
+    </style>
+    <style name="newdialog">
+		<item name="android:windowFrame">@null</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+		<item name="android:windowIsFloating">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+		<item name="android:windowTitleStyle">@null</item>
+		<item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+		<item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+		<item name="android:backgroundDimEnabled">false</item>
+		<item name="android:background">@android:color/transparent</item>
+	</style>
+</resources>

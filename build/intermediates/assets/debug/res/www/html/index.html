@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="user-scalable=no, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+	<title>Hello! Mobile!</title>
+</head>
+
+<body>
+<h1>ABL Interface Test Page</h1>
+<br />
+<br />
+<label>이름</label>&nbsp;<input id="userName" type="text" style="width:20%" onclick="setName();" />
+<br />
+<br />
+<label>주민번호</label>&nbsp;<input id="userBirth" type="number" style="width:20%" onclick="setBirth();" />-<input id="userIdNo" type="password" style="width:20%" onclick="setIden();"/>
+<br />
+<br />
+<label>통신사   </label>
+<select name="selTelCom" id="selTelCom">
+	<option value="" selected="selected">선택</option>
+	<option value="0">SKT</option>
+	<option value="1">KT</option>
+	<option value="2">LGU+</option>
+	<option value="3">SK알뜰폰</option>
+	<option value="4">KT알뜰폰</option>
+	<option value="5">LGU+알뜰폰</option>
+</select>
+<br/>
+<br />
+<label>휴대폰번호</label>&nbsp;<input id="userTelNum" type="number" style="width:30%" onclick="setTel();" />
+
+<ul>
+	<li> <Button onclick="getInsureData();"> 캡챠코드 확인(내보험다보여) </Button></li>
+    <li> <Button onclick="getInsureData1();"> 캡챠코드 확인(내보험찾아줌) </Button></li>
+	<li> <Button onclick="setExtInsureData();"> 캡챠코드 재요청 </Button></li>
+    <li> <Button onclick="getInsureCompanyData();"> 보험사 데이터 요청 </Button></li>
+    <li> <Button onclick="setSecurePwd();"> 잠금비밀번호설정 </Button></li>
+    <li> <Button onclick="getSecurePwd();"> 잠금비밀번호인증 </Button></li>
+    <li> <Button onclick="getCertList();"> 인증서 리스트 보여주기 </Button></li>
+    <li> <Button onclick="getimportCertNumber();"> 인증서 import 확인문자 요청 </Button></li>
+     <li> <Button onclick="getimportCert();"> 인증서 가져오기 </Button></li>
+     <li> <Button onclick="certCheckPasswd();"> 인증서 비밀번호 확인 </Button></li>
+     <li> <Button onclick="showSecureKeyPadEx();"> 보안키패드 </Button></li>
+	<li> <Button onclick="showSecureNumKeypad();"> 보안키패드(숫자) </Button></li>
+	<li> <Button onclick="sendDeviceID();"> UUID 가져오기 </Button></li>
+</ul>
+<img id="captchaImg" src="" >
+<br />
+<input id="captchaCD" type="text" /> <button onclick="setExtInsureData1();">보안문자요청</button>
+<br />
+<input id="smsAuthCD" type="text" /> <button onclick="setExtInsureData2();">보험정보요청</button>
+<br />
+<button onclick="requestFinanceData();">보험사 데이터 요청</button>
+<br />
+<textarea id="resultText" style="width:100%"></textarea>
+<br/>
+<br/>
+<br/>
+
+<!--<button onclick="setOriginData();">데이터 수집</button>-->
+<!--<textarea id="originData" style="width:100%"></textarea>
+
+<ul>
+	<li> <Button onclick="exEncodeData();"> 데이터 암호화 </Button></li>
+	<li> <Button onclick="exDecodeData();"> 데이터 복호화 </Button></li>
+</ul>-->
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+
+</html>
+

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/googleg_disabled_color_18.png",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable-xxhdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/googleg_standard_color_18.png",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable-xxhdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png",
+        "source": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    }
+]

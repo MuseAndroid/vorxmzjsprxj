@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="56dp"
+    tools:showIn="@layout/activity_lock_password">
+
+    <TextView
+        android:id="@+id/tvPwTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="테스트입니다"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvPwDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="테스트입니다"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwTitle"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint1"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_radio_nor"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint2"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_radio_nor"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint1"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint3"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_radio_nor"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint2"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint4"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_radio_nor"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint3"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint5"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_radio_nor"
+        app:layout_constraintEnd_toStartOf="@+id/ivPwPoint6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint4"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivPwPoint6"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_radio_nor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPwPoint5"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwDesc"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputOne"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnInputFour"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputTwo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPwPoint1"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputTwo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnInputFive"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputThree"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInputOne"
+        app:layout_constraintTop_toBottomOf="@+id/ivPwPoint3"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputThree"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="3"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnInputSix"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInputTwo"
+        app:layout_constraintTop_toBottomOf="@+id/ivPwPoint5"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputFour"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="4"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnInputSeven"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputFive"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputOne"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputFive"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="5"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnInputEight"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputSix"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInputFour"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputTwo"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputSix"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="6"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnInputNine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInputFive"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputThree"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputSeven"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="7"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputEight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputFour"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputEight"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="8"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputNine"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInputSeven"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputFive"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputNine"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="9"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInputEight"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputSix"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnDataReset"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="Reset"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputZero"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputSeven"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnInputZero"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnNumberDel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnDataReset"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputEight"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnNumberDel"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pw_btn_color"
+        android:text="Del"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInputZero"
+        app:layout_constraintTop_toBottomOf="@+id/btnInputNine"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>

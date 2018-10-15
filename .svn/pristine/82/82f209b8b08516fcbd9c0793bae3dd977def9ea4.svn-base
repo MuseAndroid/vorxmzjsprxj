@@ -1,0 +1,43 @@
+//
+//  UIImage+effect.m
+//  SmartroMobile
+//
+//  Created by daumttl on 13. 10. 22..
+//  Copyright (c) 2013년 daumttl. All rights reserved.
+//
+
+#import "UIImage+effect.h"
+
+
+@interface UIImage ()
+
+@end
+
+
+
+@implementation UIImage (effect)
+
+
+
++ (UIImage *)imageWithResolutionIndependentFile:(NSString *)aPath {
+    if (aPath == nil)
+        return nil;
+    
+    NSString *sFilename = [[aPath lastPathComponent] stringByDeletingPathExtension];
+    NSString *sExt      = [aPath pathExtension];
+    
+    if (sExt == nil || [sExt isEqualToString:@""])
+        sExt = @"png";
+    
+    return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:sFilename ofType:sExt]];
+}
+
+
+
+@end
+
+
+
+
+
+

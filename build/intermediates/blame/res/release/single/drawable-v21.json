@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/avd_show_password.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/drawable-v21/avd_show_password.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/design_password_eye.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/drawable-v21/design_password_eye.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/junho/.android/build-cache/b8332942ec637f38c5a9a660da8c282a0bf8d1ab/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/repo-factconnector/build/intermediates/res/merged/release/drawable-v21/avd_hide_password.xml",
+        "source": "/Users/junho/.android/build-cache/12808045d8932a3aae71ca0f2c3e09a8341e9244/output/res/drawable-v21/avd_hide_password.xml"
+    }
+]

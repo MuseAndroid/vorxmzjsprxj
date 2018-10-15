@@ -1,0 +1,48 @@
+//
+//  LockPasswordView.m
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 6..
+//
+
+#import "LockPasswordView.h"
+#define MAS_SHORTHAND
+#import "Masonry.h"
+@interface LockPasswordView()
+@property (strong, nonatomic) UILabel *view_title;
+@property (strong, nonatomic) ExtendWNInterface *exWNInterface;
+@end
+
+@implementation LockPasswordView
+NSDictionary *json1;
+
+-(instancetype)initWithParams :(NSString *)jsonData :(ExtendWNInterface *)interface {
+    self = [super init];
+    if(self){
+        
+        self.frame = [[UIScreen mainScreen] bounds];
+        self.backgroundColor = [UIColor whiteColor];
+//        NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+//        json1 = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//        _exWNInterface = interface;
+        [self makeUI];
+    }
+    return self;
+}
+
+-(void) makeUI {
+    _view_title = [[UILabel alloc] init];
+    [_view_title setFont:[UIFont boldSystemFontOfSize:20]];
+    NSString *title = [json1 objectForKey:@"title"] == nil? @"":[json1 objectForKey:@"title"];
+    [_view_title setText:@"test...."];
+    [_view_title setFont:[UIFont systemFontOfSize:20]];
+    [self addSubview:_view_title];
+    
+    [_view_title makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@200);
+        make.height.equalTo(@100);
+        make.top.equalTo(self.top).with.offset(100);
+        make.left.equalTo(@100);
+    }];
+}
+@end

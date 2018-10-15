@@ -1,0 +1,1088 @@
+//
+//  ESpiderManager.m
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 8. 14..
+//
+
+#import "ESpiderManager.h"
+#import "JSON.h"
+#import "SysUtils.h"
+#import "AppDelegate.h"
+#import "Constants.h"
+#import "Utils.h"
+
+
+#import <espideriOS/SpiderEngine.h>
+
+@interface ESpiderManager () <SpiderEngineDelegate> {
+    NSMutableArray *_arrSpiderData;
+    NSMutableArray *_arrSuccessList;
+    NSMutableArray *_arrErrorList;    
+//    BOOL _bShowProgress;
+    BOOL isComapanyProgress;
+    
+    NSDictionary *_dicGlobal;
+}
+@property (strong, nonatomic)ExtendWNInterface *exWnInterface;
+@property (strong, nonatomic) NSMutableArray *resultDataArray;
+@property (strong, nonatomic)NSString *callback;
+@end
+
+@implementation ESpiderManager
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Foo is singleton" reason:@"" userInfo:nil];
+}
+
++(instancetype)sharedInstance {
+    static ESpiderManager * instance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        if(!instance){
+            instance = [[ESpiderManager alloc] initPrivate];
+        }
+    });
+    return instance;
+}
+
+-(instancetype)initPrivate{
+    self = [super init];
+    if(self){
+        [self initData];
+        [self initEngine];
+    }
+    return self;
+}
+
+#pragma mark-
+#pragma mark Interface Method
+-(void) getDeviceID:(NSString *)jsonData :(ExtendWNInterface *)exInterface{
+    _exWnInterface = exInterface;
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    _callback = [json objectForKey:@"CALLBACK"];
+    
+    SpiderEngine *engine = [SpiderEngine sharedEngine];
+    NSString *uuid = [engine getDeviceInfo:ENGINE_DEVICE_UUID];
+    
+    NSDictionary *result = @{
+                             @"resultCode":@"0000",
+                             @"resultData": uuid
+                             };
+    NSString *resultStr = [result jsonString];
+    [_exWnInterface runCallback:_callback :resultStr];
+}
+
+-(void) getInsureData:(NSString *)jsonData :(ExtendWNInterface *)exInterface{
+    _exWnInterface = exInterface;
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSString *name = [json objectForKey:@"name"];
+    NSString *identiNumber = [json objectForKey:@"jumin"];
+    NSString *telecom = [json objectForKey:@"telCom"];
+    NSString *phoneNumber = [json objectForKey:@"telNum"];
+    NSString *s4Code = [json objectForKey:@"s4Code"];
+    NSString *m6Code = [json objectForKey:@"m6Code"];
+    NSString *searchGubun = [json objectForKey:@"searchGubun"];
+    _callback = [json objectForKey:@"CALLBACK"];
+    
+    [_arrSpiderData removeAllObjects];
+    [_arrSuccessList removeAllObjects];
+    [_arrErrorList removeAllObjects];
+    
+    NSMutableDictionary *loginInfo     = [NSMutableDictionary dictionary];
+    NSMutableDictionary *moduleInfo    = [NSMutableDictionary dictionary];
+    NSMutableDictionary *paramInfo     = [NSMutableDictionary dictionary];
+    NSMutableDictionary *paramExtInfo  = [NSMutableDictionary dictionary];
+    NSMutableDictionary *jobInfo       = [NSMutableDictionary dictionary];
+    
+    
+    // 보험-보험다보여 Setting **********************************
+    
+    // 로그인정보
+    [loginInfo setObject:name forKey:@"reqUserName"];            // 사용자 이름
+    [loginInfo setObject:identiNumber forKey:@"reqIdentity"];   // 주민등록번호
+    [loginInfo setObject:telecom forKey:@"reqTelecom"];                // 통신사
+    [loginInfo setObject:phoneNumber forKey:@"reqPhoneNo"];      // 전화번호
+    [loginInfo setObject:@"170" forKey:@"reqTimeOut"];              // 타임아웃 default 60, max 170 min 30
+    [loginInfo setObject:searchGubun forKey:@"reqSearchGbn"];
+    
+    // 모듈정보
+    [moduleInfo setObject:@"KR" forKey:@"country"];                 // A2CODE
+    [moduleInfo setObject:@"IS" forKey:@"organization"];            // O2CODE
+    [moduleInfo setObject:s4Code forKey:@"suborganization"];       // S4CODE
+    [moduleInfo setObject:m6Code forKey:@"code"];                // M6CODE
+    [moduleInfo setObject:@"보험-보험다보여" forKey:@"module_disply_name"];         // display 용
+    
+    // 모듈에 전달할 정보들
+    [jobInfo setObject:moduleInfo forKey:ENGINE_JOB_MODULE_KEY];              // 모듈정보
+    [jobInfo setObject:loginInfo forKey:ENGINE_JOB_PARAM_LOGIN_KEY];          // 로그인정보
+    [jobInfo setObject:paramInfo forKey:ENGINE_JOB_PARAM_INFO_KEY];           // 파라메터 정보
+    [jobInfo setObject:paramExtInfo forKey:ENGINE_JOB_PARAMEXT_INFO_KEY];     // 파라메터 Ext정보
+    
+    
+    [_arrSpiderData addObject:jobInfo];
+    //*************************************************************
+    
+    // 스크래핑 시작!!!
+    [self startSpiderEngin];
+}
+
+-(void) getInsureCompanyData:(NSString *)jsonData :(ExtendWNInterface *)exInterface {
+    _exWnInterface = exInterface;
+    
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    _callback = [json objectForKey:@"CALLBACK"];
+    NSArray *dataArray = [json objectForKey:@"data"];
+    
+    [_arrSpiderData removeAllObjects];
+    [_arrSuccessList removeAllObjects];
+    [_arrErrorList removeAllObjects];
+    [_resultDataArray removeAllObjects];
+    
+    isComapanyProgress = YES;
+    
+    for(NSDictionary *item in dataArray){
+        [self pushToSpiderData:item];
+    }
+    
+    [self startSpiderEngin];
+}
+
+-(void) setExtParams:(NSString *)jsonData : (ExtendWNInterface *)interface {
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSUInteger threadIndex = (NSUInteger)[[json objectForKey:@"threadIndex"] integerValue];
+    NSUInteger jobIndex = (NSUInteger)[[json objectForKey:@"jobIndex"] integerValue];
+    _exWnInterface = interface;
+    
+    NSString *jobCode = [json objectForKey:@"jobCode"];
+    NSString *jobData = [json objectForKey:@"data"];
+    _callback = [json objectForKey:@"CALLBACK"];
+    SpiderEngine *base = [SpiderEngine sharedEngine];
+    
+    if([base status] == 0){
+        NSLog(@"++++++++++ Engine is not running ++++++++++");
+        NSDictionary *errResult = @{
+                                    @"errorCode": @"",
+                                    @"errorMessage": @""
+                                    };
+        [self sendErrorCallback:threadIndex :jobIndex :@"9100" :errResult];
+        return;
+    }
+    
+    NSDictionary *dicReq = [_dicGlobal objectForKey:@"req"];
+    
+    //Tow-Way AIP에 정의된 파라메터로 셋팅
+    NSDictionary *dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_PARAMEXT_INFO_KEY];
+    NSDictionary *dicElemtry;
+    NSMutableDictionary *dicRes = [NSMutableDictionary dictionary];
+    
+    dicElemtry = [dicReq objectForKey:ENGINE_JOB_PARAMEXT_INFO_KEY];
+    NSArray *reqKeys = [dicElemtry allKeys];
+    NSMutableDictionary *dicReturn= [NSMutableDictionary dictionary];
+
+    if([jobCode isEqualToString:@"1001"] || [jobCode isEqualToString:@"1002"]){ //secureImg 입력값에 대한 처리
+        for (NSString *reqKeyName in reqKeys) {
+            // 기존입력 파라메터 셋팅
+            id value = [dicInfo objectForKey:reqKeyName];
+            if (value) {
+                [dicReturn setObject:value forKey:reqKeyName];
+            }
+            
+            if([jobCode isEqualToString:@"1001"]){ //캡챠코드 입력
+                //two-way 파라메터 셋팅
+                if ([reqKeyName isEqualToString:@"reqSecureNoRefresh"] == YES)
+                    [dicReturn setObject:@"0" forKey:reqKeyName];   // 보안숫자 새로고침 (0: 기본, 1: 보안문자 refresh)
+                else if ([reqKeyName isEqualToString:@"reqSecureNo"] == YES)
+                    [dicReturn setObject:jobData forKey:reqKeyName];    // 보안숫자
+            } else { //보안숫자 refresh
+                if ([reqKeyName isEqualToString:@"reqSecureNoRefresh"] == YES)
+                    [dicReturn setObject:@"1" forKey:reqKeyName];   // 보안숫자 새로고침 (0: 기본, 1: 보안문자 refresh)
+                else if ([reqKeyName isEqualToString:@"reqSecureNo"] == YES)
+                    [dicReturn setObject:@"" forKey:reqKeyName];    // 보안숫자
+            }
+        }
+    }else if([jobCode isEqualToString:@"1100"]){ //SMS Auth 입력값에 대한 처리
+        for (NSString *reqKeyName in reqKeys) {
+            // 기존입력 파라메터 셋팅
+            id value = [dicInfo objectForKey:reqKeyName];
+            if (value) {
+                [dicReturn setObject:value forKey:reqKeyName];
+            }
+        
+            //two-way 파라메터 셋팅
+            if ([reqKeyName isEqualToString:@"reqSMSAuthNo"] == YES)
+                [dicReturn setObject:jobData forKey:reqKeyName];   // 보안숫자 새로고침 (0: 기본, 1: 보안문자 refresh)
+        }
+    }
+    
+    //Tow-Way AIP에 정의된 파라메터로 셋팅
+    [dicRes setObject:dicReturn forKey:ENGINE_JOB_PARAMEXT_INFO_KEY];
+    
+    //Tow-Way AIP에 정의된 파라메터를 엔진으로 전달
+    [base setParamData:threadIndex jobIdx:jobIndex paramJsonString:[dicRes JSONFragment]];
+    
+//    [SysUtils showWaitingSplash];
+    
+}
+
+
+#pragma mark-
+#pragma mark Private Method
+
+-(void) initData{
+    _arrSpiderData  = [NSMutableArray array];   // 스크래핑 할 정보 데이터
+    _arrSuccessList = [NSMutableArray array];   // 스크래핑 성공한 정보 저장용
+    _arrErrorList   = [NSMutableArray array];   // 스크래핑 실패한 정보 저장용
+    _resultDataArray = [[NSMutableArray alloc] init]; //복수개의 보험사 문의 시 결과 저장용
+    
+    _dicGlobal      = nil;                      // 2Way 모듈 파라메터 저장용
+//    _bShowProgress  = NO;                      // 프로그레스를 보여줄지여부 (화면 옵션용 "NO" 로 셋팅시 기본 인디게이터로 설정됨)
+    isComapanyProgress = NO;                    //보험사 데이터 질의 여부..
+}
+
+
+-(void) initEngine {
+    // 엔진 업데이트
+    SpiderEngine *spiderEngin = [SpiderEngine sharedEngine];
+    if(spiderEngin){
+        spiderEngin.licenseKey = @"ced0cb1e-9b90-11e8-8dd9-80c16e782f98";   // e-spider 라이센스 키 입력
+        spiderEngin.delegate = self;                                        // delegate 설정
+        spiderEngin.threadCount = 16;                                        // 모듈 thread 갯수입력 (최대 8개 가능)
+        spiderEngin.autoStop = YES;                                         // 모듈 종료시 자동으로 종료여부
+        
+        NSLog(@"ENGINE_VERSION = [%@]"              , spiderEngin.version);
+        NSLog(@"ENGINE_DEVICE_APP_ID = [%@]"        , [spiderEngin getDeviceInfo:ENGINE_DEVICE_APP_ID]);
+        NSLog(@"ENGINE_DEVICE_APP_VERSION = [%@]"   , [spiderEngin getDeviceInfo:ENGINE_DEVICE_APP_VERSION]);
+        NSLog(@"ENGINE_DEVICE_UNIQUE_ID = [%@]"     , [spiderEngin getDeviceInfo:ENGINE_DEVICE_UNIQUE_ID]);
+        NSLog(@"ENGINE_DEVICE_UUID = [%@]"          , [spiderEngin getDeviceInfo:ENGINE_DEVICE_UUID]);
+        NSLog(@"ENGINE_DEVICE_MANUFACTURER = [%@]"  , [spiderEngin getDeviceInfo:ENGINE_DEVICE_MANUFACTURER]);
+        NSLog(@"ENGINE_DEVICE_MODEL = [%@]"         , [spiderEngin getDeviceInfo:ENGINE_DEVICE_MODEL]);
+        NSLog(@"ENGINE_DEVICE_OS_NAME = [%@]"       , [spiderEngin getDeviceInfo:ENGINE_DEVICE_OS_NAME]);
+        NSLog(@"ENGINE_DEVICE_OS_VERSION = [%@]"    , [spiderEngin getDeviceInfo:ENGINE_DEVICE_OS_VERSION]);
+        NSLog(@"ENGINE_DEVICE_PLATFORM = [%@]"      , [spiderEngin getDeviceInfo:ENGINE_DEVICE_PLATFORM]);
+        NSLog(@"ENGINE_DEVICE_PLATFORM_NAME = [%@]" , [spiderEngin getDeviceInfo:ENGINE_DEVICE_PLATFORM_NAME]);
+        NSLog(@"ENGINE_DEVICE_USER_NAME = [%@]"     , [spiderEngin getDeviceInfo:ENGINE_DEVICE_USER_NAME]);
+        NSLog(@"ENGINE_DEVICE_LOCALE_NAME = [%@]"   , [spiderEngin getDeviceInfo:ENGINE_DEVICE_LOCALE_NAME]);
+    }
+}
+
+- (void)startSpiderEngin {
+    
+    SpiderEngine *spiderEngin = [SpiderEngine sharedEngine];
+    if(isComapanyProgress){
+        NSString *sDatSecureKey = [[NSUserDefaults standardUserDefaults] objectForKey:@"sDatSecureKey"];
+        [spiderEngin setOptionsRaon:YES cipherKeyHex:sDatSecureKey cipherIVHex:@"4D6F62696C655472616E734B65793130" padding:NO cipherAlgorism:SE_CIPHER_SEED_CBC cipherDataType:SE_CIPHER_TYPE_HEXSTRING];
+    }
+    
+    BOOL bEngineStart = [spiderEngin startEngine];                      // 엔진실행
+    
+    if (bEngineStart == NO) {
+        NSLog(@"엔진 초기화에 실패하였습니다.");
+    }
+    
+    BOOL bJobStart = [spiderEngin startJob];                            // 모듈실행
+
+    if (bJobStart == NO) {
+        NSLog(@"모듈 실행에 실패하였습니다.");
+    }
+    
+    //show waiting splash....
+//    [SysUtils showWaitingSplash];
+    
+}
+
+- (void)getParam:(int)threadIndex jobIndex:(int)jobIndex param:(NSDictionary *)param {
+    //Two-way 화면처리
+    NSMutableDictionary *dic =[NSMutableDictionary dictionary];
+    [dic setObject:param forKey:@"req"];
+    [dic setObject:[NSNumber numberWithInt:threadIndex] forKey:@"thread"];
+    [dic setObject:[NSNumber numberWithInt:jobIndex] forKey:@"job"];
+    
+    //IOS 제약조건으로 performSelectorOnMainThread 로 화면 호출
+    if ([self respondsToSelector:@selector(getParamcall:)])
+        [self performSelectorOnMainThread:@selector(getParamcall:) withObject:dic waitUntilDone:false];
+}
+
+- (void)getParamcall:(NSDictionary *)param {
+    //Two-way 화면처리
+    
+    // 입력받을 화면을 분기하여 보여주도록 함
+//    if (_bShowProgress == NO)
+//        [SysUtils closeWaitingSplash];
+    
+    
+    if (_dicGlobal) {
+        _dicGlobal = nil;
+    }
+    
+    _dicGlobal = [[NSDictionary alloc] initWithDictionary:param];
+    
+    NSDictionary *dicReq = [param objectForKey:@"req"];
+    
+    if ([dicReq objectForKey:@"paramExtInfo"]) {
+        if ([[dicReq objectForKey:@"paramExtInfo"] objectForKey:@"reqSecureNo"]) {
+            NSString *sReqSecureNo = [[dicReq objectForKey:@"paramExtInfo"] objectForKey:@"reqSecureNo"];
+            // 캽챠 보안문자 이미지를 보여주자
+//            NSURL *url = [NSURL URLWithString:sReqSecureNo];
+
+            NSDictionary *resultData = @{
+                                         @"threadIndex": [param objectForKey:@"thread"],
+                                         @"jobIndex": [param objectForKey:@"job"],
+                                         @"data":sReqSecureNo
+                                         };
+            NSDictionary *result = @{
+                                     @"resultCode": @"1001",
+                                     @"resultData": resultData
+                                     };
+
+            NSString *resultStr = [result jsonString];
+            [_exWnInterface runCallback:_callback :resultStr];
+        } else if ([[dicReq objectForKey:@"paramExtInfo"] objectForKey:@"reqSMSAuthNo"]) {
+            // 휴대폰인증시 화면
+//            [self.view addSubview:_vSample2];
+            NSString *sReqSMSAuthNo = [[dicReq objectForKey:@"paramExtInfo"] objectForKey:@"reqSMSAuthNo"];
+            NSDictionary *resultData = @{
+                                         @"threadIndex": [param objectForKey:@"thread"],
+                                         @"jobIndex": [param objectForKey:@"job"],
+                                         @"data":sReqSMSAuthNo
+                                         };
+            NSDictionary *result = @{
+                                     @"resultCode": @"1100",
+                                     @"resultData": resultData
+                                     };
+            NSString *resultStr = [result jsonString];
+            [_exWnInterface runCallback:_callback :resultStr];            
+        }
+    }
+}
+
+-(void)sendErrorCallback:(NSUInteger)threadIndex :(NSUInteger)jobIndex :(NSString *)errorCode :(NSDictionary *)errDic {
+    NSMutableDictionary *dicParams  = [[NSMutableDictionary alloc] init];
+    SpiderEngine *engine = [SpiderEngine sharedEngine];
+    
+    NSString *name;
+    NSString *telNum;
+    NSString *uuid;
+    NSString *os;
+    
+    if([engine status] == 0){
+        name = @"";
+        telNum = @"";
+//        uuid = @"";
+//        os = @"";
+        uuid = [engine getDeviceInfo:ENGINE_DEVICE_UUID];
+        os = [engine getDeviceInfo:ENGINE_DEVICE_OS_NAME];
+    }else{
+//        NSDictionary *dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_PARAM_LOGIN_KEY];
+//        name = [dicInfo objectForKey:@"reqUserName"];
+//        telNum = [dicInfo objectForKey:@"reqPhoneNo"];
+        name = @"";
+        telNum = @"";
+        uuid = [engine getDeviceInfo:ENGINE_DEVICE_UUID];
+        os = [engine getDeviceInfo:ENGINE_DEVICE_OS_NAME];
+    }
+    
+    [dicParams setObject:name forKey:@"name"];
+    [dicParams setObject:telNum forKey:@"telNum"];
+    [dicParams setObject:os forKey:@"os"];
+    [dicParams setObject:uuid forKey:@"deviceID"];
+    [dicParams setObject:[errDic objectForKey:@"errorCode"] forKey:@"errorCode"];
+    [dicParams setObject:[errDic objectForKey:@"errorMessage"] forKey:@"errorMessage"];
+    
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    [data setObject:[NSString stringWithFormat:@"%lul", threadIndex] forKey:@"threadIndex"];
+    [data setObject:[NSString stringWithFormat:@"%lul", jobIndex] forKey:@"jobIndex"];
+    [data setObject:dicParams forKey:@"data"];
+    
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+    [result setObject:errorCode forKey:@"resultCode"];
+    [result setObject:data forKey:@"resultData"];
+    
+    NSString * resultStr = [result jsonString];
+    [_exWnInterface runCallback:_callback :resultStr];
+}
+
+- (void)errorMessageShow:(NSString *)aErrorMsg {
+    [SysUtils showMessage:aErrorMsg];
+}
+
+- (NSString *)stringByReplacingUnicodePoint:(id)jsonObj
+{
+    NSData *data = [NSJSONSerialization dataWithJSONObject:jsonObj options:0 error:nil];
+    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return result;
+}
+
+-(void)pushToSpiderData :(NSDictionary *)data {
+
+    NSMutableDictionary *loginInfo     = [NSMutableDictionary dictionary];
+    NSMutableDictionary *moduleInfo    = [NSMutableDictionary dictionary];
+    NSMutableDictionary *paramInfo     = [NSMutableDictionary dictionary];
+    NSMutableDictionary *paramExtInfo  = [NSMutableDictionary dictionary];
+    NSMutableDictionary *jobInfo       = [NSMutableDictionary dictionary];
+    
+    int index = [[data objectForKey:@"s4code"] intValue];
+    
+    NSString *certFile = [Utils getCertFilePath];
+    NSString *keyFile = [Utils getKeyFilePath];
+    NSString *cipherPwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"chiperPwd"];
+    if(cipherPwd == nil){
+        cipherPwd = @"";
+    }
+
+    NSString *sCertFile, *sKeyFile;
+    if((certFile == nil)||(keyFile == nil)){
+        sCertFile = @"";
+        sKeyFile = @"";
+    }else{
+        // 인증서 경로를 다시 설정(경로에 한글이 들어간 경우 apple측에 버그로 byte 수가 변경됨)
+         sCertFile   = [NSString stringWithCString:[certFile fileSystemRepresentation] encoding:NSUTF8StringEncoding];
+         sKeyFile    = [NSString stringWithCString:[keyFile fileSystemRepresentation] encoding:NSUTF8StringEncoding];
+    }
+
+    
+    // 로그인정보
+    [loginInfo setObject:sCertFile forKey:@"reqCertFile"];         // 인증서 signCert.der 경로
+    [loginInfo setObject:sKeyFile forKey:@"reqKeyFile"];       // 인증서 signPri.key 경로
+    [loginInfo setObject:cipherPwd forKey:@"reqCertPass"];    // 인증서 비밀번호
+//    [loginInfo setObject:@"7109121774515" forKey:@"reqIdentity"];        // 주민등록번호
+//    [loginInfo setObject:[data objectForKey:@"index"] forKey:@"companyIndex"];
+
+    // 모듈정보
+    [moduleInfo setObject:@"KR" forKey:@"country"];                 // A2CODE
+    [moduleInfo setObject:@"IS" forKey:@"organization"];            // O2CODE
+    [moduleInfo setObject:@"010010" forKey:@"code"];                // M6CODE
+    [moduleInfo setObject:@"보험-보험다보여" forKey:@"module_disply_name"];  // display 용
+
+
+
+    switch (index) {
+        case 203: //*************   삼성생명   ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0203" forKey:@"suborganization"];       // S4CODE
+
+            // 파라미터 정보
+            NSString *userId = [data objectForKey:@"reqUserId"] == nil? @"":[data objectForKey:@"reqUserId"];
+            NSString *userPass =[data objectForKey:@"reqUserPass"] == nil? @"":[data objectForKey:@"reqUserPass"];
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            NSString *address =[data objectForKey:@"reqAddress"] == nil? @"":[data objectForKey:@"reqAddress"];
+            
+            [paramInfo setObject:userId forKey:@"requserId"];
+            [paramInfo setObject:userPass forKey:@"reqUserPass"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+            [paramInfo setObject:address forKey:@"reqAddress"];
+        }
+        break;
+        case 234: //*************   미래에셋생명   ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0234" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *userId = [data objectForKey:@"reqUserId"] == nil? @"":[data objectForKey:@"reqUserId"];
+            NSString *userPass =[data objectForKey:@"reqUserPass"] == nil? @"":[data objectForKey:@"reqUserPass"];
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            NSString *telCom =[data objectForKey:@"reqTelecom"] == nil? @"":[data objectForKey:@"reqTelecom"];
+            
+            [paramInfo setObject:userId forKey:@"requserId"];
+            [paramInfo setObject:userPass forKey:@"reqUserPass"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:telCom forKey:@"reqTelecom"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+        }
+        break;
+        case 201: //*************   한화생명   ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0201" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *userId = [data objectForKey:@"reqUserId"] == nil? @"":[data objectForKey:@"reqUserId"];
+            NSString *userPass =[data objectForKey:@"reqUserPass"] == nil? @"":[data objectForKey:@"reqUserPass"];
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            
+            [paramInfo setObject:userId forKey:@"requserId"];
+            [paramInfo setObject:userPass forKey:@"reqUserPass"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+        }
+        break;
+        case 152:  //*************   더케이손보   ***********************
+        { // 모듈정보
+            [moduleInfo setObject:@"0152" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            NSString *address =[data objectForKey:@"reqAddress"] == nil? @"":[data objectForKey:@"reqAddress"];
+            
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+            [paramInfo setObject:address forKey:@"reqAddress"];
+        }
+        break;
+        case 193: //*************   BNP파리바카디프손보   ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0193" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *userPass =[data objectForKey:@"reqUserPass"] == nil? @"":[data objectForKey:@"reqUserPass"];
+            [paramInfo setObject:userPass forKey:@"reqUserPass"];
+        }
+        break;
+        case 218:  //*************   KB생명   ***********************
+        {  // 모듈정보
+            [moduleInfo setObject:@"0218" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *userPass =[data objectForKey:@"reqUserPass"] == nil? @"":[data objectForKey:@"reqUserPass"];
+            [paramInfo setObject:userPass forKey:@"reqUserPass"];
+        }
+        break;
+        case 233: //*************   KDB생병  ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0233" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            [paramInfo setObject:[data objectForKey:@"reqPhoneNo"] forKey:@"reqPhoneNo"];
+            [paramInfo setObject:[data objectForKey:@"reqTelecom"] forKey:@"reqTelecom"];
+        }
+        break;
+        case 104: //*************   MG손보  ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0104" forKey:@"suborganization"];       // S4CODE
+            
+            // 파라미터 정보
+            [paramInfo setObject:[data objectForKey:@"reqPhoneNo"] forKey:@"reqPhoneNo"];
+            [paramInfo setObject:[data objectForKey:@"reqEmail"] forKey:@"reqEmail"];
+        }
+        break;
+        case 105: //*************   흥국화재  ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0105" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+        }
+        break;
+        case 108: //*************   삼성화재  ***********************
+        { // 모듈정보
+            [moduleInfo setObject:@"0108" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+        }
+        break;
+        case 110: //*************   KB손보  ***********************
+        {  // 모듈정보
+            [moduleInfo setObject:@"0110" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+        }
+        break;
+        case 111: //*************   DB손보  ***********************
+        {  // 모듈정보
+            [moduleInfo setObject:@"0111" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+        }
+            break;
+        case 151: //*************   AIG손보  ***********************
+        {// 모듈정보
+            [moduleInfo setObject:@"0151" forKey:@"suborganization"];       // S4CODE
+        
+            // 파라미터 정보
+            NSString *phoneNo =[data objectForKey:@"reqPhoneNo"] == nil? @"":[data objectForKey:@"reqPhoneNo"];
+            NSString *email =[data objectForKey:@"reqEmail"] == nil? @"":[data objectForKey:@"reqEmail"];
+            [paramInfo setObject:phoneNo forKey:@"reqPhoneNo"];
+            [paramInfo setObject:email forKey:@"reqEmail"];
+        }
+        break;
+        case 101: //*************   메리츠화재  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0101" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 102: //*************   한화손보  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0102" forKey:@"suborganization"];       // S4CODE
+        case 103: //*************   롯데손보  ***********************
+             // 모듈정보
+            [moduleInfo setObject:@"0103" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 109: //*************   현대해상  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0109" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 112: //*************   AXA손보  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0112" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 171: //*************   NH농협손해보험  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0171" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 194: //*************   처브손보  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0194" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 202: //*************   알리안츠생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0202" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 205: //*************   교보생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0205" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 211: //*************   신한생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0211" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 217: //*************   현대라이프생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0217" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 231: //*************   DGB생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0231" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 242: //*************  농협생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0242" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 243: //*************  교보라이프플래닛  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0243" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 251: //*************  라이나생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0251" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 261: //*************  푸르덴셜생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0261" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 262: //*************  ING생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0262" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 263: //*************  하나생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0263" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 272: //*************  메트라이프생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0272" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 274: //*************  동양생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0274" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 277: //*************  처브라이프생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0277" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 291: //*************  IBK연금보험  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0291" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 501: //*************  우체국보험  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0501" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 204: //*************  흥국생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0204" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 252: //*************  AIA생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0252" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 271: //*************  DB생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0271" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 278: //*************  BNP파리바카디프생명  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0278" forKey:@"suborganization"];       // S4CODE
+        break;
+        case 502: //*************  MG새마을금고  ***********************
+            // 모듈정보
+            [moduleInfo setObject:@"0502" forKey:@"suborganization"];       // S4CODE
+        break;
+    }
+    
+    // 모듈에 전달할 정보들
+    [jobInfo setObject:moduleInfo forKey:ENGINE_JOB_MODULE_KEY];              // 모듈정보
+    [jobInfo setObject:loginInfo forKey:ENGINE_JOB_PARAM_LOGIN_KEY];          // 로그인정보
+    [jobInfo setObject:paramInfo forKey:ENGINE_JOB_PARAM_INFO_KEY];           // 파라메터 정보
+    [jobInfo setObject:paramExtInfo forKey:ENGINE_JOB_PARAMEXT_INFO_KEY];     // 파라메터 Ext정보
+    
+    [_arrSpiderData addObject:jobInfo];
+}
+
+#pragma mark -
+#pragma mark SpiderEngineDelegate implementation
+- (NSUInteger)numberOfJobInEngine:(SpiderEngine *)engine {
+    /*
+     모듈 호출 정보갯수 셋팅
+     */
+
+    return [_arrSpiderData count];
+}
+
+
+/**
+ * Module data callback
+ *
+ * @param engine SpiderEngine
+ * @param jobDataForJobIndex {int} Job index
+ * @return {NSDictionary} job data
+ */
+- (NSDictionary *)engine:(SpiderEngine *)engine jobDataForJobIndex:(NSUInteger)jobIndex {
+    /*
+     모듈이 호출될 정보를 넘겨주는 delegate 입니다.
+     */
+
+    return [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_MODULE_KEY];
+}
+
+
+/**
+ * Module get Parameter callback
+ *
+ * @param engine SpiderEngine
+ * @param threadIndex {int} thread index
+ * @param jobIndex {int} add job index
+ * @param requireJSONString {NSString} get parameter string (JSON String)
+ */
+- (NSString *)engine:(SpiderEngine *)engine threadIndex:(NSUInteger)threadIndex jobIndex:(NSUInteger)jobIndex requireJSONString:(NSString *)requireJSONString synchronous:(BOOL)synchronous {
+    /*
+     모듈이 호출될 상세정보를 넘겨주는 delegate 입니다.
+     asynchronous 와 synchronous 를 판단하여 추가 입력 파라메터가 필요할시(화면에 입력받는 파라메터)
+     정보를 넘겨줄 수 있는 함수입니다.
+     */
+
+    if (!requireJSONString)
+        return NULL;
+
+    NSString *reqValue = [NSString stringWithFormat:@"%@", requireJSONString];
+    NSDictionary *dicReq = (NSDictionary *)[reqValue JSONValue];
+
+
+    if (synchronous) {
+        NSArray *keys = [dicReq allKeys];
+        NSDictionary *dicInfo;
+        NSDictionary *dicElemtry;
+        NSMutableDictionary *dicRes = [NSMutableDictionary dictionaryWithCapacity:1];
+        for (NSString *keyName in keys) {
+            dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:keyName];
+
+            if ([keyName isEqualToString:ENGINE_JOB_PARAM_LOGIN_KEY]) {
+                //login info에 관련한 정보
+                dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_PARAM_LOGIN_KEY];
+
+            } else if ([keyName isEqualToString:ENGINE_JOB_PARAM_INFO_KEY]) {
+                //일반 param에 의한 정보
+                dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_PARAM_INFO_KEY];
+
+            } else if ([keyName isEqualToString:ENGINE_JOB_PARAMEXT_INFO_KEY]) {
+                // 기타 정보에 관련 정보
+                dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_PARAMEXT_INFO_KEY];
+
+            }
+
+            dicElemtry = [dicReq objectForKey:keyName];
+            NSArray *reqKeys = [dicElemtry allKeys];
+            NSMutableDictionary *dicReturn= [NSMutableDictionary dictionaryWithCapacity:[reqKeys count]];
+
+            for (NSString *reqKeyName in reqKeys) {
+                id value = [dicInfo objectForKey:reqKeyName];
+                if (value) {
+                    [dicReturn setObject:value forKey:reqKeyName];
+                }
+            }
+
+            [dicRes setObject:dicReturn forKey:keyName];
+        }
+
+#ifdef DEBUG
+        //        NSLog(@"%@", [dicRes description]);
+#endif
+
+        if (dicRes)
+            return [dicRes JSONFragment];
+        else
+            return @"";
+    } else {
+        //Two-way 방식사용
+        [self getParam:(int)threadIndex jobIndex:(int)jobIndex param:dicReq];
+    }
+
+    return nil;
+}
+
+
+/**
+ * Module result callback
+ *
+ * @param engine SpiderEngine
+ * @param threadIndex {int} thread index
+ * @param jobIndex {int} add job index
+ * @param error {NSUInteger} if eroor is not 0 then occure error else success
+ * @param userError {NSString} user error is site error code
+ * @param errorMessage {NSString} user error is site error message
+ * @param resultJsonString {NSString} if error is 0 then module result string (json string) else (null or "")
+ */
+- (void)engine:(SpiderEngine *)engine threadIndex:(NSUInteger)threadIndex jobIndex:(NSUInteger)jobIndex error:(NSUInteger)error userError:(NSString *)userError errorMessage:(NSString *)errorMessage resultJsonString:(NSString *)resultJsonString {
+
+    /*
+     하나의 모듈이 완료가 되면 처리 데이터를 전달하는 delegate 입니다.
+     모듈 에러시에 같이 처리 가능합니다.
+     */
+
+
+    NSDictionary *dicModuleInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_MODULE_KEY];
+    NSString *sModuleName = [dicModuleInfo objectForKey:@"module_disply_name"];
+    
+    NSDictionary *dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_PARAM_LOGIN_KEY];
+    NSString *name = [dicInfo objectForKey:@"reqUserName"];
+    NSString *telNum = [dicInfo objectForKey:@"reqPhoneNo"];
+    NSString *companyIndex = [dicModuleInfo objectForKey:@"suborganization"];
+    NSString *uuid = [engine getDeviceInfo:ENGINE_DEVICE_UUID];
+    NSString *os = [engine getDeviceInfo:ENGINE_DEVICE_OS_NAME];
+    
+    if (error == 0) {   // 스크래핑 결과가 성공인경우
+        NSLog(@"************************************************************************************");
+        NSLog(@"*** jobindex [%lu] result[%@]", (unsigned long)jobIndex, resultJsonString);
+        NSLog(@"************************************************************************************");
+
+        // 모듈 조회성공시 성공한 리스트를 담는다.
+        NSDictionary *originDic         = [resultJsonString JSONValue];         // *** 실재 스크래핑이 성공한 데이터 ***
+        NSMutableDictionary *dicParams  = [[NSMutableDictionary alloc] init];
+      
+        if(isComapanyProgress){
+            NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+            [data setObject:@"0" forKey:@"errorCode"];
+            [data setObject:companyIndex forKey:@"s4code"];
+            [data setObject:[NSString stringWithFormat:@"%lul", (unsigned long)threadIndex] forKey:@"threadIndex"];
+            [data setObject:[NSString stringWithFormat:@"%lul", (unsigned long)jobIndex] forKey:@"jobIndex"];
+            [data setObject:os forKey:@"os"];
+            [data setObject:uuid forKey:@"deviceID"];
+            [data setObject:[originDic jsonString] forKey:@"data"];
+            [_resultDataArray addObject:data];
+        }else{
+            [dicParams setObject:name forKey:@"name"];
+            [dicParams setObject:telNum forKey:@"telNum"];
+            [dicParams setObject:os forKey:@"os"];
+            [dicParams setObject:uuid forKey:@"deviceID"];
+            [dicParams setObject:[originDic jsonString] forKey:@"jsonResult"];
+            
+            NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+            [data setObject:[NSString stringWithFormat:@"%lul", (unsigned long)threadIndex] forKey:@"threadIndex"];
+            [data setObject:[NSString stringWithFormat:@"%lul", (unsigned long)jobIndex] forKey:@"jobIndex"];
+            [data setObject:dicParams forKey:@"data"];
+            
+            NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+            [result setObject:@"0000" forKey:@"resultCode"];
+            [result setObject:data forKey:@"resultData"];
+
+            NSString * resultStr = [result jsonString];
+            [_exWnInterface runCallback:_callback :resultStr];
+        }
+        
+//        [dicParams setObject:sModuleName forKey:@"display_name"];
+//        [dicParams setObject:[[originDic objectForKey:@"result"] objectForKey:@"lists"] forKey:@"lists"];
+
+//        [_arrSuccessList addObject:dicParams];
+
+    } else {
+        NSLog(@"************************************************************************************");
+        NSLog(@"*** jobindex [%lu] error[%d] userError[%@] message[%@]", (unsigned long)jobIndex, (int)error & 0xFFF, userError, errorMessage);
+        NSLog(@"************************************************************************************");
+        // 모듈 조회실패시 실패한 리스트를 담는다.
+        NSString *sErrorCode = [NSString stringWithFormat:@"%d", (int)error & 0xFFF];
+        [_arrErrorList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                                  sModuleName, @"moduel_name",
+                                  errorMessage, @"error_msg",
+                                  sErrorCode, @"error_code",
+                                  nil]];
+        
+        // 결과 페이지에서 오류사항도 보여주기위해 담자.
+        [_arrSuccessList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                                    sModuleName, @"display_name",
+                                    sModuleName, @"moduel_name",
+                                    errorMessage, @"error_msg",
+                                    sErrorCode, @"error_code",
+                                    nil]];
+
+        if(isComapanyProgress){
+            NSDictionary *dicInfo = [[_arrSpiderData objectAtIndex:jobIndex] objectForKey:ENGINE_JOB_PARAM_LOGIN_KEY];
+            NSString *uuid = [engine getDeviceInfo:ENGINE_DEVICE_UUID];
+            NSString *os = [engine getDeviceInfo:ENGINE_DEVICE_OS_NAME];
+            
+            NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+            [data setObject:[NSString stringWithFormat:@"%d", (int)error & 0xFFF] forKey:@"errorCode"];
+            [data setObject:companyIndex forKey:@"s4code"];
+            [data setObject:[NSString stringWithFormat:@"%lul", (unsigned long)threadIndex] forKey:@"threadIndex"];
+            [data setObject:[NSString stringWithFormat:@"%lul", (unsigned long)jobIndex] forKey:@"jobIndex"];
+            [data setObject:os forKey:@"os"];
+            [data setObject:uuid forKey:@"deviceID"];
+            [data setObject:errorMessage forKey:@"data"];
+            [_resultDataArray addObject:data];
+        }else{
+            NSDictionary *errResult = @{
+                                        @"errorCode": sErrorCode,
+                                        @"errorMessage": errorMessage
+                                        };
+            [self sendErrorCallback:threadIndex :jobIndex :@"9000" :errResult];
+        }
+
+    }
+
+}
+
+
+/**
+ * Module result callback
+ *
+ * Engine Error is not config or system error
+ *
+ * @param engine SpiderEngine
+ * @param engineError {NSError} engine system error
+ *
+ */
+- (void)engine:(SpiderEngine *)engine engineError:(NSError *)error {
+    /*
+     모듈에러시에 진입되는 delegate 입니다.
+     */
+
+    NSLog(@" Module result callback Error : [%ld]", (long)error.code);
+}
+
+
+//@optional
+/**
+ * Engine status call back
+ *
+ * @param engine SpiderEngine
+ * @param status {int} status code
+ */
+- (void)engine:(SpiderEngine *)engine status:(NSUInteger)status {
+    /*
+     작업이 완료되면 진입되는 delegate 입니다.
+     status = 0 이면 작업이 완료된 상태입니다.
+     페이지 이동 및 메세지 처리시 performSelectorOnMainThread 에서 꼭 처리하셔야 합니다.
+     */
+
+    NSLog(@" Engine status call back  : [%lu]", (unsigned long)status);
+
+    // 작업이 완료되면 다음 처리
+    if (status == 0) {
+        if(isComapanyProgress){
+            isComapanyProgress = NO;
+            NSString *resultCode;
+//            if([_arrErrorList count]>0){
+//                resultCode = @"9000";
+//            }else{
+//                resultCode = @"0000";
+//            }
+            resultCode = @"0000";
+            NSDictionary *result = @{
+                                     @"resultCode": resultCode,
+                                     @"resultData": (NSMutableArray *)_resultDataArray
+                                     };
+            NSString * resultStr = [result jsonString];
+            [_exWnInterface runCallback:_callback :resultStr];
+        }
+    }
+}
+
+/**
+ * Module status call back
+ *
+ * @param engine SpiderEngine
+ * @param threadIndex {int} thread index
+ * @param jobIndex {int} add job index
+ * @param status {int} status code
+ */
+- (void)engine:(SpiderEngine *)engine threadIndex:(NSUInteger)threadIndex jobIndex:(NSUInteger)jobIndex status:(NSUInteger)status {
+    NSLog(@" Module status call back  : [%lu] [%lu] [%lu]", (unsigned long)threadIndex, (unsigned long)jobIndex, (unsigned long)status);
+    /*
+     엔진에 진행상황을 status로 처리할 수 있습니다.
+     이미지 및 화면 갱신을 위해 performSelectorOnMainThread 로 꼭 처리해 주세요.
+     */
+
+//    if (_bShowProgress == YES) {
+//        // 프로세스를 갱신한다
+//        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//
+//        [appDelegate performSelectorOnMainThread:@selector(showStatus:) withObject:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                                                                    [NSNumber numberWithInteger:jobIndex], PROGRESS_KEY_JOBINDEX,
+//                                                                                    [NSNumber numberWithInteger:status], PROGRESS_KEY_STATUS,
+//                                                                                    nil] waitUntilDone:false];
+//
+//    }
+
+
+}
+
+
+/**
+ * Module progress percent
+ *
+ * @param engine SpiderEngine
+ * @param threadIndex {int} thread index
+ * @param jobIndex {int} add job index
+ * @param percent {int} percent
+ */
+- (void)engine:(SpiderEngine *)engine threadIndex:(NSUInteger)threadIndex jobIndex:(NSUInteger)jobIndex percent:(NSUInteger)percent {
+    NSLog(@" Module progress percent  : [%lu] [%lu] [%lu]", (unsigned long)threadIndex, (unsigned long)jobIndex, (unsigned long)percent);
+
+    /*
+     작업진행을 percent로 처리할 수 있습니다.
+     이미지 및 화면 갱신을 위해 performSelectorOnMainThread 로 꼭 처리해 주세요.
+     */
+
+//    if (_bShowProgress == YES) {
+//        // 프로세스를 갱신한다
+//        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//
+//        [appDelegate performSelectorOnMainThread:@selector(showProgress:) withObject:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                                                                      [NSNumber numberWithInteger:jobIndex], PROGRESS_KEY_JOBINDEX,
+//                                                                                      [NSNumber numberWithInteger:percent], PROGRESS_KEY_PERCENT,
+//                                                                                      nil] waitUntilDone:false];
+//    }
+}
+
+
+@end

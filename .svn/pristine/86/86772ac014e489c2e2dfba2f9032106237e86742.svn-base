@@ -1,0 +1,158 @@
+[
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/addon_media_audiorecorder.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/addon_media_audiorecorder.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/activity_media_player.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/activity_media_player.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/core_progressdialoglayout.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/core_progressdialoglayout.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/image_list_item.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/image_list_item.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/listitem.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/listitem.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/addon_popup_date_picker.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/addon_popup_date_picker.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/sample.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/sample.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/batchone.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/batchone.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/addon_popup_date_picker_dialog.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/addon_popup_date_picker_dialog.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/addon_popup_number_picker.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/addon_popup_number_picker.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/addon_net_progressnetworkdialoglayout.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/addon_net_progressnetworkdialoglayout.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/main.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/image_list.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/image_list.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/listitemtitle.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/listitemtitle.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/gridview_item.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/gridview_item.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/sample2.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/sample2.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/addon_media_crop_cropimage.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/addon_media_crop_cropimage.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/activity_imagelist.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/activity_imagelist.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/nativelist.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/nativelist.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/image_folder_list.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/image_folder_list.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/mapview.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/mapview.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow_custom.xml",
+        "source": "/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/res/layout/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/image_details_activity.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/image_details_activity.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/activity_imagelist2.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/activity_imagelist2.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/gridview_item2.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/gridview_item2.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout/batchtwo.xml",
+        "source": "/Users/junho/Documents/morpheus/factconnector/res/layout/batchtwo.xml"
+    }
+]

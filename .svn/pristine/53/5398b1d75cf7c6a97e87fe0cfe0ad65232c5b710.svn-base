@@ -1,0 +1,520 @@
+[
+    {
+        "outputFile": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ko/values-ko.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 49,
+                    "endOffset": 150
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/factconnector/res/values-ko/plugin_location_strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 49,
+                        "endOffset": 100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 155,
+                    "endColumn": 72,
+                    "endOffset": 223
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/factconnector/res/values-ko/plugin_location_strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 371,
+                        "endColumn": 72,
+                        "endOffset": 439
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 228,
+                    "endColumn": 105,
+                    "endOffset": 329
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 245,
+                        "endColumn": 101,
+                        "endOffset": 346
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 334,
+                    "endColumn": 170,
+                    "endOffset": 500
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 0,
+                        "startOffset": 347,
+                        "endColumn": 170,
+                        "endOffset": 517
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 505,
+                    "endColumn": 117,
+                    "endOffset": 618
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 0,
+                        "startOffset": 518,
+                        "endColumn": 113,
+                        "endOffset": 631
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 623,
+                    "endColumn": 103,
+                    "endOffset": 722
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 0,
+                        "startOffset": 632,
+                        "endColumn": 99,
+                        "endOffset": 731
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 727,
+                    "endColumn": 173,
+                    "endOffset": 896
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 0,
+                        "startOffset": 732,
+                        "endColumn": 173,
+                        "endOffset": 905
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 901,
+                    "endColumn": 118,
+                    "endOffset": 1015
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 0,
+                        "startOffset": 906,
+                        "endColumn": 114,
+                        "endOffset": 1020
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 1020,
+                    "endColumn": 136,
+                    "endOffset": 1152
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 0,
+                        "startOffset": 1021,
+                        "endColumn": 132,
+                        "endOffset": 1153
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1157,
+                    "endColumn": 123,
+                    "endOffset": 1276
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 0,
+                        "startOffset": 1154,
+                        "endColumn": 119,
+                        "endOffset": 1273
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1281,
+                    "endColumn": 179,
+                    "endOffset": 1456
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/7fb05ea72adb0f1b9e4033141d6527fed90e1aef/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 247,
+                        "endColumn": 179,
+                        "endOffset": 426
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1461,
+                    "endColumn": 203,
+                    "endOffset": 1660
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 0,
+                        "startOffset": 1274,
+                        "endColumn": 203,
+                        "endOffset": 1477
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1665,
+                    "endColumn": 104,
+                    "endOffset": 1765
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 0,
+                        "startOffset": 1478,
+                        "endColumn": 100,
+                        "endOffset": 1578
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1770,
+                    "endColumn": 166,
+                    "endOffset": 1932
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 0,
+                        "startOffset": 1579,
+                        "endColumn": 166,
+                        "endOffset": 1745
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1937,
+                    "endColumn": 119,
+                    "endOffset": 2052
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 0,
+                        "startOffset": 1746,
+                        "endColumn": 115,
+                        "endOffset": 1861
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 2057,
+                    "endColumn": 176,
+                    "endOffset": 2229
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 0,
+                        "startOffset": 1862,
+                        "endColumn": 176,
+                        "endOffset": 2038
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 2234,
+                    "endColumn": 148,
+                    "endOffset": 2378
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 0,
+                        "startOffset": 2039,
+                        "endColumn": 144,
+                        "endOffset": 2183
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 2383,
+                    "endColumn": 88,
+                    "endOffset": 2467
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 0,
+                        "startOffset": 2184,
+                        "endColumn": 84,
+                        "endOffset": 2268
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 2472,
+                    "endColumn": 87,
+                    "endOffset": 2555
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 0,
+                        "startOffset": 2269,
+                        "endColumn": 83,
+                        "endOffset": 2352
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2560,
+                    "endColumn": 103,
+                    "endOffset": 2659
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/0b1449fdd33404ef60ca424033157c9710e8db6f/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 0,
+                        "startOffset": 2353,
+                        "endColumn": 99,
+                        "endOffset": 2452
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2664,
+                    "endColumn": 45,
+                    "endOffset": 2705
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/factconnector/res/values-ko/plugin_location_strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 45,
+                        "endOffset": 146
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2710,
+                    "endColumn": 100,
+                    "endOffset": 2806
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/7c00aa82951d5ce630bc5028ad8055ee5b614259/output/res/values-ko/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 205,
+                        "endColumn": 96,
+                        "endOffset": 301
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2811,
+                    "endColumn": 38,
+                    "endOffset": 2845
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/factconnector/res/values-ko/plugin_location_strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 191,
+                        "endColumn": 38,
+                        "endOffset": 225
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2850,
+                    "endColumn": 39,
+                    "endOffset": 2885
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/factconnector/res/values-ko/plugin_location_strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 151,
+                        "endColumn": 39,
+                        "endOffset": 186
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 2890,
+                    "endColumn": 78,
+                    "endOffset": 2964
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/factconnector/res/values-ko/plugin_location_strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 292,
+                        "endColumn": 78,
+                        "endOffset": 366
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 2969,
+                    "endColumn": 61,
+                    "endOffset": 3026
+                },
+                "from": {
+                    "file": "/Users/junho/Documents/morpheus/factconnector/res/values-ko/plugin_location_strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 230,
+                        "endColumn": 61,
+                        "endOffset": 287
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 3031,
+                    "endColumn": 100,
+                    "endOffset": 3127
+                },
+                "from": {
+                    "file": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/values-ko/values-ko.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 100,
+                        "endOffset": 151
+                    }
+                }
+            }
+        ]
+    }
+]

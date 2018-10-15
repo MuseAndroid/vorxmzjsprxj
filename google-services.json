@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "589145637508",
+    "firebase_url": "https://factconnector-3f886.firebaseio.com",
+    "project_id": "factconnector-3f886",
+    "storage_bucket": "factconnector-3f886.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589145637508:android:423cbd30535ff096",
+        "android_client_info": {
+          "package_name": "kr.co.genexon.factconnector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589145637508-uhdknq14qtf1m7oh42j30msu1ursbua9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuJe9tU4gVwfhbnF5jk1QUJADXj6_o3Gg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

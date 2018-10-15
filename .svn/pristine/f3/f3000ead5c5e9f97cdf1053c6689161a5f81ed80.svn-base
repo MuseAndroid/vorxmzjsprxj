@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/junho/Documents/morpheus/factconnector/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/res/layout-v21/notification_template_custom_big.xml"
+    }
+]

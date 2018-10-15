@@ -1,0 +1,13 @@
+//
+//  LockPasswordView.h
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 9. 6..
+//
+
+#import <UIKit/UIKit.h>
+#import "ExtendWNInterface.h"
+
+@interface LockPasswordView : UIView
+-(instancetype)initWithParams :(NSString *)jsonData :(ExtendWNInterface *)interface;
+@end

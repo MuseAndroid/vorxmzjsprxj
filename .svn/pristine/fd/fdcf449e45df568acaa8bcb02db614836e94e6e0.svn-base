@@ -1,0 +1,137 @@
+//
+//  SysUtils.m
+//  SmartroMobile
+//
+//  Created by daumttl on 13. 10. 22..
+//  Copyright (c) 2013년 daumttl. All rights reserved.
+//
+
+#import "SysUtils.h"
+
+
+@implementation SysUtils
+
+static const NSInteger kTagOfSplashView   = 4443;
+
+
++ (BOOL)isNull:(id)obj {
+	if (obj == nil || obj == [NSNull null])
+		return YES;
+	
+	// obj가 NSString이거나 NSString을 상속받은 객체일 경우 empty string을 체크한다.
+	if ([obj isKindOfClass:[NSString class]] == YES) {
+		if ([(NSString *)obj isEqualToString:@""] == YES)
+			return YES;
+	}
+	
+	return NO;
+}
+
+
++ (NSString *)nullToVoid:(NSString *)aSource {
+	if ([self isNull:aSource] == YES)
+		return @"";
+	
+	return aSource;
+}
+
+
++ (void)showMessage:(NSString *)aMsg {
+	[self showMessageWithOwner:aMsg owner:nil tag:0];
+}
+
+
++ (void)showMessageWithOwner:(NSString *)aMsg owner:(id)aOwner {
+	[self showMessageWithOwner:aMsg owner:aOwner tag:0];
+}
+
+
++ (void)showMessageWithOwner:(NSString *)aMsg owner:(id)aOwner tag:(NSInteger)aTag {
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"안내"
+													message:aMsg
+												   delegate:aOwner
+										  cancelButtonTitle:@"확인"
+										  otherButtonTitles:nil];
+	
+	alert.tag = aTag;
+	
+	[alert show];
+    
+#if !__has_feature(objc_arc)
+	[alert release];
+#endif
+}
+
+
++ (BOOL)findAndResignFirstResponder:(UIView *)aView {
+	if ([aView isFirstResponder] == YES) {
+        [aView resignFirstResponder];
+		
+        return YES;
+    }
+	
+    for (UIView *subView in aView.subviews) {
+		if ([self findAndResignFirstResponder:subView])
+			return YES;
+    }
+	
+    return NO;
+}
+
+
++ (UIColor *)colorFromRGB:(CGFloat)aRed green:(CGFloat)aGreen blue:(CGFloat)aBlue alpha:(CGFloat)aAlpha {
+    return [UIColor colorWithRed:(aRed / 255.0f) green:(aGreen / 255.0f) blue:(aBlue / 255.0f) alpha:aAlpha];
+}
+
+
++ (UIColor *)colorFromRGB:(CGFloat)aRed green:(CGFloat)aGreen blue:(CGFloat)aBlue {
+    return [self colorFromRGB:aRed green:aGreen blue:aBlue alpha:1.0f];
+}
+
+
++ (void)showWaitingSplash {
+    UIView* vSplash = (UIView *)[[UIApplication sharedApplication].keyWindow viewWithTag:kTagOfSplashView];
+    
+    if ([SysUtils isNull:vSplash] == NO)
+        return;
+    
+    vSplash                 = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    vSplash.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
+    vSplash.tag             = kTagOfSplashView;
+    
+    CGRect indicatorFrame   = [UIApplication sharedApplication].keyWindow.frame;
+    indicatorFrame.origin   = [UIApplication sharedApplication].keyWindow.center;
+    indicatorFrame.origin.x = indicatorFrame.origin.x - 18.5f;
+    indicatorFrame.origin.y = indicatorFrame.origin.y - 18.5f;
+    indicatorFrame.size     = CGSizeMake(37.0f, 37.0f);
+    
+    UIActivityIndicatorView* avIndicator    = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    avIndicator.frame                       = indicatorFrame;
+    
+    [avIndicator startAnimating];
+    [vSplash addSubview:avIndicator];
+    
+#if !__has_feature(objc_arc)
+    [avIndicator release];
+#endif
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:vSplash];
+    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:vSplash];
+}
+
+
++ (void)closeWaitingSplash {
+    UIView* vSplash = (UIView *)[[UIApplication sharedApplication].keyWindow viewWithTag:kTagOfSplashView];
+    
+    if ([SysUtils isNull:vSplash] == YES)
+        return;
+    
+    [vSplash removeFromSuperview];
+}
+
+
+
+@end
+
+
+

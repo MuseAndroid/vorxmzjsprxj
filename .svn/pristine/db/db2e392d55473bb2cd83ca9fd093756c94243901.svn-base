@@ -1,0 +1,13 @@
+//
+//  KISACryptoManager.h
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 8. 29..
+//
+
+#import <Foundation/Foundation.h>
+#import "ExtendWNInterface.h"
+
+@interface KISACryptoManager : NSObject
+-(void)encyptSeed128:(NSString *)jsonData :(ExtendWNInterface *)exInterface ;
+@end

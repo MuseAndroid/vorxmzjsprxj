@@ -1,0 +1,212 @@
+//
+//  ExtendWNInterface.m
+//
+
+#import "ExtendWNInterface.h"
+#import "ESpiderManager.h"
+#import "LockPasswordViewController.h"
+#import "LockPasswordView.h"
+#import "KeyWirelessManager.h"
+#import "SecureKeyPadManager.h"
+//#import "KISACryptoManager.h"
+
+@interface ExtendWNInterface ()
+
+@property (nonatomic, assign) PPWebViewController *viewctrl;
+
+@end
+
+@implementation ExtendWNInterface
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void) exWNCheckFirst : (NSString *)jsonData {
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSString * message = [json objectForKey:@"TEXT"];
+    NSString *callback = [json objectForKey:@"CALLBACK"];
+    
+    [self runCallback:callback :message];
+}
+
+#pragma mark -
+#pragma mark Interface
+/*****************************************************************
+ *                    Espider Engine                             *
+ *****************************************************************/
+-(void) exWNgetInsureData:(NSString *)jsonData{
+    ESpiderManager *spiderManager = [ESpiderManager sharedInstance];
+    [spiderManager getInsureData:jsonData :self];
+}
+-(void) exWNsetExtParams:(NSString *)jsonData{
+    ESpiderManager *spiderManager = [ESpiderManager sharedInstance];
+    [spiderManager setExtParams:jsonData :self];
+}
+-(void) exWNgetInsureCompanyData:(NSString *)jsonData{
+    ESpiderManager *spiderManager = [ESpiderManager sharedInstance];
+    [spiderManager getInsureCompanyData:jsonData :self];
+}
+
+-(void) exWNSendDeviceID:(NSString *)jsonData {
+    ESpiderManager *spiderManager = [ESpiderManager sharedInstance];
+    [spiderManager getDeviceID:jsonData :self];
+}
+
+/*****************************************************************
+ *                         LockPassword                          *
+ *****************************************************************/
+-(void) exWNgetLockPassword: (NSString *)jsonData {
+    LockPasswordViewController *lpvc = [[LockPasswordViewController alloc]initWithParams:jsonData :self];
+    UIWindow *window=[UIApplication sharedApplication].keyWindow;
+    UIViewController *root = [window rootViewController];
+    [root presentViewController:lpvc animated:NO completion:nil];
+//    LockPasswordView *lockView = [[LockPasswordView alloc] initWithParams:jsonData :self];
+//    [self.viewctrl.view addSubview:lockView];
+    
+}
+
+/*****************************************************************
+ *                         Key#Wireless                          *
+ *****************************************************************/
+-(void)exWNgetCertList:(NSString *)jsonData{
+    KeyWirelessManager *keyWirelessManager = [KeyWirelessManager sharedInstance];
+    [keyWirelessManager getCertList:jsonData :self];
+}
+
+-(void)exWNimportCertNumber:(NSString *)jsonData{
+    KeyWirelessManager *keyWirelessManager = [KeyWirelessManager sharedInstance];
+    [keyWirelessManager importCertNumber:jsonData :self];
+}
+
+-(void)exWNimportCert:(NSString *)jsonData{
+    KeyWirelessManager *keyWirelessManager = [KeyWirelessManager sharedInstance];
+    [keyWirelessManager importCert:jsonData :self];
+}
+
+-(void)exWNcertCheckPasswd:(NSString *)jsonData{
+    KeyWirelessManager *keyWirelessManager = [KeyWirelessManager sharedInstance];
+    [keyWirelessManager certCheckPasswd:jsonData :self :self.viewctrl];
+}
+
+/*****************************************************************
+ *                         Secure KeyPad                         *
+ *****************************************************************/
+-(void) exWNShowSecureKeyPad: (NSString *) jsonData {
+    NSData *data = [jsonData dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSString *type = [json objectForKey:@"type"];
+    
+    SecureKeyPadManager *sKeyManager = [[SecureKeyPadManager alloc]init];
+    [sKeyManager initWithDataFromInterface:json :self];
+    if([type isEqualToString:@"A"]){
+        [sKeyManager setQwertyTrasnkey];
+        [sKeyManager showQwertyKeyPad];
+    }else {
+        [sKeyManager setNumberTrasnkey];
+        [sKeyManager showNumberKeyPad];
+    }
+    
+}
+
+///*****************************************************************
+// *                    KISA Crypto Module                         *
+// *****************************************************************/
+//-(void)exWNEncryptSeed: (NSString *)jsonData {
+//    KISACryptoManager *cryptoManager = [[KISACryptoManager alloc] init];
+//    [cryptoManager encyptSeed128:jsonData :self];
+//}
+
+
+/*****************************************************************
+ *                         Callback                              *
+ *****************************************************************/
+#pragma mark -
+#pragma mark callback Function
+- (void)runCallback:(NSString *)callback :(NSString *)result {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.35 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self->_viewctrl callCbfunction:callback withObjects:result, nil];
+    });
+}
+
+#pragma mark -
+#pragma mark other Function
+- (BOOL)checkValidParameters:(NSDictionary *)parameters fromValidClasses:(NSDictionary *)validClasses errorMessage:(NSString **)errorMessage {
+    
+    for ( NSString *key in validClasses ) {
+        Class validClass = [validClasses objectForKey:key];
+        id parameter = [parameters objectForKey:key];
+        
+        if ( parameter == nil ) {
+            *errorMessage = [NSString stringWithFormat:@"key(%@) is null", key];
+            return NO;
+        }
+        
+        if ( ![parameter isKindOfClass:validClass] ) {
+            *errorMessage = [NSString stringWithFormat:@"key(%@) is invalid type", key];
+            return NO;
+        }
+        
+        if ( [validClass isEqual:[NSString class]] && [[parameter stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+            *errorMessage = [NSString stringWithFormat:@"key(%@) is invalid", key];
+            return NO;
+        }
+        else if ( [validClass isEqual:[NSDictionary class]] ) {
+            *errorMessage = [NSString stringWithFormat:@"key(%@) is invalid", key];
+            return NO;
+        }
+        else if ( [validClass isKindOfClass:[NSArray class]] ) {
+            *errorMessage = [NSString stringWithFormat:@"key(%@) is invalid", key];
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (BOOL)isAlive {
+    if (![[PPNavigationController ppNavigationController] existViewController:_viewController]) {
+        PPDebug(@"Already released view controller!!");
+        return NO;
+    }
+    
+    return YES;
+}
+
+// Callback 구조를 설명하기 위한 Sample Interface
+- (NSString *)wnSampleCallback:(NSString *)jsonString {
+    NSDictionary *options = [jsonString objectFromJsonString];
+    
+    if (!options) {
+        return [@{@"status":@"FAIL", @"error":@"invalid params"} jsonString];
+    }
+    
+    NSString *invalidMessage = nil;
+    NSDictionary *validClasses = @{
+                                   @"callback": [NSString class]
+                                   };
+    
+    if ( ! [self checkValidParameters:options fromValidClasses:validClasses errorMessage:&invalidMessage] ) {
+        return [@{@"status":@"FAIL", @"error":invalidMessage} jsonString];
+    }
+    
+    NSString *callback = [options objectForKey:@"callback"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.35 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        NSDictionary *resultInfo = @{
+                                     @"status": @"SUCCESS"
+                                     };
+        
+        [self.viewController callCbfunction:callback withObjects:resultInfo, nil];
+    });
+    
+    return [@{ @"status": @"PROCESSING" } jsonString];
+}
+
+@end

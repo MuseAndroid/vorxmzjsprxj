@@ -1,0 +1,17 @@
+//
+//  ESpiderManager.h
+//  factconnector
+//
+//  Created by Lee MoonJik on 2018. 8. 14..
+//
+
+#import <UIKit/UIKit.h>
+#import "ExtendWNInterface.h"
+
+@interface ESpiderManager : UIView
++(instancetype)sharedInstance;
+-(void) getInsureData:(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+-(void) getInsureCompanyData:(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+-(void) setExtParams:(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+-(void) getDeviceID:(NSString *)jsonData :(ExtendWNInterface *)exInterface;
+@end

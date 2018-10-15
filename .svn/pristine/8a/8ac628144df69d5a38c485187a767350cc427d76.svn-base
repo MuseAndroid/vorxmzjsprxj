@@ -1,0 +1,28 @@
+//
+//  SysUtils.h
+//  SmartroMobile
+//
+//  Created by daumttl on 13. 10. 22..
+//  Copyright (c) 2013년 daumttl. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+
+@interface SysUtils : NSObject
+
+
++ (BOOL)isNull:(id) obj;
++ (NSString *)nullToVoid:(NSString *)aSource;
++ (void)showMessage:(NSString *)aMsg;
++ (void)showMessageWithOwner:(NSString *)aMsg owner:(id)aOwner;
++ (void)showMessageWithOwner:(NSString *)aMsg owner:(id)aOwner tag:(NSInteger)aTag;
++ (BOOL)findAndResignFirstResponder:(UIView *)aView;
++ (UIColor *)colorFromRGB:(CGFloat)aRed green:(CGFloat)aGreen blue:(CGFloat)aBlue alpha:(CGFloat)aAlpha;
++ (UIColor *)colorFromRGB:(CGFloat)aRed green:(CGFloat)aGreen blue:(CGFloat)aBlue;
++ (void)showWaitingSplash;
++ (void)closeWaitingSplash;
+
+
+@end

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/2d2915dc177f5b31ab0a4c85b3390c20447a4987/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="88c68e5ef7c5ace393d014c9ec5fe736b1ca55cf">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_624ab41308031fd026af0cb71899be71a819b9ea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.0/edf3f7bfb84a7521d0599efa3b0113a0ee90f85/common-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="0edf3f7bfb84a7521d0599efa3b0113a0ee90f85">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/common-1.1.0_dbc0ff0f9f710a3fae4d704763979fddcf3df0fd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.0/8007981f7d7540d89cd18471b8e5dcd2b4f99167/common-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="8007981f7d7540d89cd18471b8e5dcd2b4f99167">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/common-1.1.0_f765418101e6abe28df34939706010af84607dfe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/5789d970a15dd9ab414b33f6bb852e3812e2003c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="2ed83f4f10884d0a803ad4a3ebc18dad56fc4eab">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ea0b0797d069c2df7337ddd7d9772a6e4ce81c45/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.1.1/39ded76b5e1ce1c5b2688e1d25cdc20ecee32007/support-annotations-27.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="39ded76b5e1ce1c5b2688e1d25cdc20ecee32007">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-27.1.1_6dd33e1c17f60ed5d2e07a72b8cb3425e71f474a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_addon_db_2.1.4.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="5d863a2cb44825ebea5a021e792788ed2af9f4bd">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_addon_db_2.1.4.6_a98600d4ed8cc6cac80e505eaae73c4b56a34b7c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/libs/KISACrypto.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="15896e6fca78479f9404e26768bc25e3435bfafc">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/KISACrypto_9b11b3c2c7ad31a90d6aa6aa34afe3bff8ee2480/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_plugin_location_2.1.0.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="10129200dd429cf4305cdba546c155caf986e265">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_plugin_location_2.1.0.5_66665cf786b342cd5bb93bb59fccf299e23ae1a2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_addon_file_2.1.4.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="3737efb7071039c58ac92c03e0ef9127bd80a9f9">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_addon_file_2.1.4.9_dd74c8e7f70ffc16fa35140654ff19466f8360b9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/87602a9454f06f1a54f5f35df945d25aa1b17603/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="1643bb57f25843dc23e644c5de1f7939ebf967f9">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f6db53be54c396a7e5dcd54c3033853c25e477e8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="f85aea6993c845ab8edd12b0ec233119e0faa830">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a1a488285bdf56fadbb8de3972ca11fcf820a48d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_addon_zip_2.1.4.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="27f92d4d98c1d2356a1160e4528e6e50f5fc83e3">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_addon_zip_2.1.4.2_25d888b8249c0c808ab9e202d21aefb7474ce242/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/bbeef3faa0c1f422aa1a82d4ffaa4461d9a75ea6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="722a72e3da5eb0825aace9981b13276d7823c313">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f3b7fa5b72c01a79413e7140e1dfaefce02a7ab1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/b828a800a1c98197206acac343e84b7660f8654e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="ecac68da0f045ab5f53e9ad9ab4069ce99fa24ec">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9fefb52693cf5b9939625e45dcf528b162f1bd0e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.8.2_b911976d0e973c742516c1ced339109dbe30e096/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/3320e0175ae02b5e6e1ee2ce28f639a3e8e26723/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="df3356e822ce539e0f368fdfce3381d2fb896954">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f8481845f085db450257d71764ab4dfa93e80404/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_addon_media_2.1.5.17.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="8eba53534c2b8afacc97d5b70b626e31d8c4d03d">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_addon_media_2.1.5.17_1c077e0e37dff7dd34ebb19efd6a7087784fe9ee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_core_2.1.7.39.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="d9c192f98f97ca415f1372888b3ebc5248b89d7c">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_core_2.1.7.39_be72a7ea2f0231d0f1ae0c171f23c9db05db37b5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/moprheus_push_library_fcm_5.1.0.11.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="ca2dcb2c58d1cbcf7b98b64314a974270aa09d9d">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/moprheus_push_library_fcm_5.1.0.11_ad81f541cd3912b409b9b132c8ab7ecde4817b79/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/df4ccf9b2733340bb22b58c25ab916fcd0b2abdc/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="a0fc13bb175be92930227157fa21e88657caa803">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_47ad1ebf47e634091f58a32b9f97c28fe9432f4c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_2aeefc1757a1aa3cdfee9e967af2379982fe0985/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_plugin_push.r4_2.1.5.15.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="12578369be9f2b010316f9331734c54ba5114463">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_plugin_push.r4_2.1.5.15_724093a5fe9dd88b884c2ef76e0148feacd17f3f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/mqtt-android-push_1.0.0.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="91f5d5955ab5624f148fd67d63ee82bf45a3a7ff">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/mqtt-android-push_1.0.0.6_df8cb2ff71c0f349b29b750247fc504cd06744e3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_addon_net_2.1.4.12.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="c7ffccf55032706e0bbc4d584c1fe54ca37da0d4">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_addon_net_2.1.4.12_9df6ddc9d498609a9656e1ef8d8133a5337754be/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/b86c028c879697bb504519ee16a57c85f4481f82/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="71d380aeac037e63bab7bda2ba211777e16a2f42">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f2f99dc08491502956131193b13f25118854c2d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/gson.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="7291c9de7f574b15502f73f0ac2ae6d3af36c751">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/gson_b048023cecb81864a0f083ad62303f5f061cebfb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/android-support-v4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="1dc1f63cee098b27db60b9a2833fd7ca58f89636">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/android-support-v4_1f17cc0a5916fb1d09f3b639f23b597376b2c64f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/976a89530bc3b04ae59244a65edd7ef4f9172eaf/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="b91045039cbf8fabb7989999578a13659eb1749f">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_46c835d5305ecde2dce19befdf85e43657a030bf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/7c00aa82951d5ce630bc5028ad8055ee5b614259/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="e7e3894213abc7e84f1d06a2fc2cc5703e7a7369">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c0b0613ef542990df49fcf6065a0d13471cc854f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/6bc8c075717a375ad94a20a46c2398bd9963e785/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="1fd3ceac7f415975323d52c6c6057db409a907f6">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_20f9f0306a2767bb8bd1bc604ec775c02eed1698/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/b7c8ccf440f444136eafc47feff6e9cf19f7a254/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="bd593fc702bfdb2111dc570d1cf48608db42bd37">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_460d92f5a8cd1c19c5545d8dd52795085151c5a5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/f34baf5851f8dd89554c18b9c04e3faa3a0dce91/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="ec657bb192b20229696216bf233779b16bf75a54">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6a09f7bb1f025b813425630d407b5cbf63c86ba2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/apache.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="416214ad312e1fc4c57f9388bde80295018f9bba">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/apache_b39f3f2140a47435397fd1a501abbe51d6ce2daf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_addon_netExt_2.1.4.20.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="ea1e15c7b486f452410f3ff4b495da1cd922c22e">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_addon_netExt_2.1.4.20_459b481d3e8df8c423e46dc59c1cd7bcb8f9aadf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/dcb31b9a43c66d26a54c71acabdd9dc245ce53ed/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="874f1143c11f5d38533efe512bf913e3e847e7df">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8962be92e9db566c9cefe39233f1ff6397267c84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/universal-image-loader.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/universal-image-loader_fa7202f109dccf90317b2d5ea27aaa2c077f89a1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/2a1a52874ccfc5f62a542ad4f139e5d7997463e0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="e2bbe48deed35056023eed2cdc0cc92e5c7d3617">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9c774ddc72a49e361f1971eb08f9256e6cd97c1f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/af197124c081e6b973e31002b5f795cdcaf889f8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="3304d33470ff64cf83bce9189ff3648a42eb2aa7">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dfd6a10f1e9c3764c5291ced535b3a35b40fe297/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/39309818854cc4a520490ab67614be4b3ecbe44a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="8a9fd7c97f1d13f97f3b52f9d2e54cd857d5acf9">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ee147de75eeacb5d1e391f901b5c503344b6d689/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Documents/morpheus/factconnector/mcoreLibs/m_addon_popup_2.1.4.18.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="b314b59e7b97b9427031d449c2c831b4ed747d39">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/m_addon_popup_2.1.4.18_b985b288bfa18826ac1a9b53a0145e104886869a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/Downloads/factconnector/factconnector/libs/espider.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="1516614bc731bb6276fbcb521e2f121349c90fd7">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/2/espider_fc2215cede0bf12b52719a82d44dc53515e27987/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/junho/.android/build-cache/a3a3ae51f6ecb7fff8663518d2c5b67a928b35fe/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="23dcb4803d3103bde3f3f5db978a726338fe49ae">
+        <dex dex="/Users/junho/Documents/morpheus/factconnector/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c79b0858b878e7a0ab89e98d4fb2cfd62a0f27e7/classes.dex" />
+    </item>
+
+</items>

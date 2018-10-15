@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resources>
+    <!-- 아래 app_package는 반드시 android package 이름과 동일하게 만들어야 한다(DO NOT DELETE !!!)-->
+    <string name="app_package">kr.co.genexon.factconnector</string>
+
+    <string name="app_name">팩트커넥터</string>
+
+    <string name="hello">Hello World, HybridMobileApp!</string>
+    <string name="nbutton1">통신테스트</string>
+    <string name="nbutton2">네이티브화면</string>
+    <string name="nbutton3">UI웹화면</string>
+    <string name="sTitle1">받은 파라메터 데이터</string>
+    <string name="sTitle2">Network error</string>
+
+    <string name="engine_key">ced0cb1e-9b90-11e8-8dd9-80c16e782f98</string>
+
+</resources>
